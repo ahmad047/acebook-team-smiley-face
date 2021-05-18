@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+include SessionsHelper
 
   # sessions/new
   def new
@@ -6,8 +7,10 @@ class SessionsController < ApplicationController
 
   # create session based on login
   def create
-    user = User.find_by(email: params[:session][:email].downcase)
-    if user && user.authenticate(params[:session][:password])
+    user = User.find_by(email: params[:email].downcase)
+
+    if user && user.authenticate(params[:password])
+
       #session helper
       log_in(user)
       redirect_to root_url

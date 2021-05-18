@@ -6,7 +6,15 @@ class SessionsController < ApplicationController
 
   # create session based on login
   def create
-    redirect_to root_url
+    user = User.find_by(email: params[:session][:email].downcase)
+    if user && user.authenticate(params[:session][:password])
+      #session helper
+      log_in(user)
+      redirect_to root_url
+    else
+      flash.now[:alert] = "Invalid email/password combination"
+      render 'new'
+    end
   end
 
   # DESTROY >:(

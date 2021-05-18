@@ -1,0 +1,64 @@
+body {
+  background-color: floralwhite;
+  margin: 0;
+  padding: 0;
+}
+
+.wrapper {
+  background-color: rgb(219, 250, 219);
+  display: grid;
+  grid-template: auto 1fr auto / auto 1fr auto;
+}
+
+.post {
+  background-color: lavender;
+  grid-column: 2 / 3;
+  /* grid-row: 1 / 4; */
+}
+
+.new-post {
+  grid-column: 2 / 3;
+}
+
+.header {
+  background-color: lawngreen;
+  /* padding: 2rem; */
+  grid-column: 1 / 4;
+}
+
+.left-side {
+  background-color: lightpink;
+  grid-column: 1 / 2;
+  grid-row: 2 / 4;
+}
+
+.right-side {
+  background-color: magenta;
+  grid-column: 3 / 4;
+}
+
+.footer {
+  background-color: mediumpurple;
+  padding: 1rem;
+  grid-column: 1 / 4;
+}
+
+/* ----------------- nav bar --------------- */
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: paleturquoise;
+}
+
+li { 
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  padding: 1.4em 1.6em;
+}

@@ -1,8 +1,36 @@
-<% @posts.each do |post| %>
-  <p><%= post.message %></p>
-  <p>Posted <%= time_ago_in_words(post.created_at) %> ago</p>
-<% end %>
-
-<%= link_to new_post_path do %>
-  New post
-<% end %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <%= stylesheet_link_tag "posts.css" %>
+  <title>Feed</title>
+</head>
+<body>
+  <div class="wrapper">
+  <header class="header">
+  <ul>
+    <li><a href="#bookface">BookFace</a></li>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#Profile">Profile</a></li>
+    <li style="float:right"><a class="active" href="#signout">Sign Out</a></li>
+  </ul>
+  </header>
+  <div class="left-side">Left side</div>
+  <div class="right-side">Right side</div>
+    <% @posts.each do |post| %>
+      <main class="post">
+      <p><%= post.message %></p>
+      <p>Posted <%= time_ago_in_words(post.created_at) %> ago</p>
+      </main>
+    <% end %>
+    <div class="new-post">
+    <%= link_to new_post_path do %>
+      New post
+    <% end %>
+    </div>
+    <footer class="footer">@2021-team-smiley-face</footer>
+  </div>
+</body>
+</html>

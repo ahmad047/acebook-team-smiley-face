@@ -6,7 +6,7 @@ RSpec.describe "users/edit", type: :view do
       first_name: "MyString",
       last_name: "MyString",
       email: "MyString",
-      password: ""
+      password: "123456"
     ))
   end
 

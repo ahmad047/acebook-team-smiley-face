@@ -7,13 +7,13 @@ RSpec.describe "users/index", type: :view do
         first_name: "First Name",
         last_name: "Last Name",
         email: "Email",
-        password: ""
+        password: "password"
       ),
       User.create!(
         first_name: "First Name",
         last_name: "Last Name",
         email: "Email",
-        password: ""
+        password: "password"
       )
     ])
   end

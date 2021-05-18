@@ -1,50 +1,90 @@
+/* ----------------- base styles --------------- */
+:root{
+  --main-bg-color: lavender;
+  --header-bg-colour: paleturquoise;
+  --left-side-bg-color: lightpink;
+  --post-bg-color: white;
+  --post-text: black;
+  --posted-at-text: grey;
+}
+
+
 body {
   background-color: floralwhite;
   margin: 0;
   padding: 0;
 }
 
+
+/* ----------------- content --------------- */
+
 .wrapper {
   background-color: rgb(219, 250, 219);
   display: grid;
-  grid-template: auto 1fr auto / auto 1fr auto;
+  height: 100vh;
+  grid-template: auto 1fr auto / minmax(100px, 200px) 1fr minmax(100px, 200px);
 }
 
-.post {
-  background-color: lavender;
+main {
+  background-color: var(--main-bg-color);
   grid-column: 2 / 3;
-  /* grid-row: 1 / 4; */
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  flex-direction: column;
+  padding-left: 2em;
+}
+
+.post{
+  background-color: var(--post-bg-color);
+  border-radius: 20px;
+  /* align-content: stretch; */
+  margin: 1em 2em;
+  padding: 2em;
+  /* min-width: 200px; */
+  max-width: 500px;
+  /* max-width: 800px; */
+  font-size: 1.2em;
+}
+
+.posted-at{
+  color: var(--posted-at-text);
+  font-size: 0.9em;
 }
 
 .new-post {
   grid-column: 2 / 3;
+  align-self: center;
+  margin: 2em 0 1em 0.5em;
 }
 
 .header {
-  background-color: lawngreen;
-  /* padding: 2rem; */
   grid-column: 1 / 4;
 }
 
 .left-side {
-  background-color: lightpink;
+  padding-top: 2em;
+  background-color: var(--left-side-bg-color);
   grid-column: 1 / 2;
-  grid-row: 2 / 4;
+  border-right: 2px solid black;
 }
 
 .right-side {
-  background-color: magenta;
+  background-color: var(--main-bg-color);
+  padding: 4em 2em 0 0;
+  /* background-color: magenta; */
   grid-column: 3 / 4;
 }
 
-.footer {
-  background-color: mediumpurple;
+footer {
+  background-color: var(--header-bg-colour);
   padding: 1rem;
+  text-align: center;
   grid-column: 1 / 4;
 }
 
 /* ----------------- nav bar --------------- */
-ul {
+.nav-ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -52,13 +92,29 @@ ul {
   background-color: paleturquoise;
 }
 
-li { 
+.nav-li { 
   float: left;
 }
 
-li a {
+.nav-li a, .username {
   display: block;
   color: white;
   text-decoration: none;
   padding: 1.4em 1.6em;
+} 
+
+.nav-li a:hover{
+  background-color: lightblue;
+}
+
+/* ----------------- side bar --------------- */
+
+.sidebar-li {
+  list-style-type: none;
+  color: black;
+  text-decoration: none;
+}
+
+.profile-photo {
+  width: 80px;
 }

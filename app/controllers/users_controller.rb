@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  include SessionsHelper
   before_action :set_user, only: %i[ show edit update destroy ]
 
   # GET /users or /users.json
@@ -23,6 +24,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
 
+
     # refactor not to include respond_to |format|
     respond_to do |format|
       if @user.save
@@ -32,6 +34,7 @@ class UsersController < ApplicationController
         # redirect_to root_url, notice: "User was successfully created."
         format.json { render :show, status: :created, location: @user } 
         # **Redirect and display notice** 
+        log_in(@user)
       else
         # refactoring
         format.html { render :new, status: :unprocessable_entity }

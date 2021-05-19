@@ -16,12 +16,30 @@
       <input type="text" placeholder="search"></input>
       <input type="submit" placeholder="submit"></input>
     </li> %>
-    <li class="nav-li"  style="float:right"><a href="#">Sign Out</a></li>
+    <% if @user %>
+      <%= button_to 'Log Out', logout_path, method: :delete  %>
+        <div class="left-side">
+  <ul>
+  <%= image_tag("profile_photo.png", :alt => "profile photo", :class => "profile-photo") %>
+  <a href="#"><li class="sidebar-li">Header!</li></a>
+  <%# probably change this to user  %> 
+  <a href="#"><li class="sidebar-li">Messages</li></a>
+  </ul>
+  </div>
+    <% else %>
+      <%= link_to login_path do %>
+        Log In
+      <% end %>
+    <% end %>
+    <li class="nav-li"  style="float:right"><a href="#"></a></li>
     <li class="nav-li username" style="float:right">BOB ROSS</li>
     <%# probably change this to user  %> 
   </ul>
+  
   </header>
+  
   <body>
+  
   <div class="left-side">
   <ul>
   <%= image_tag("profile_photo.png", :alt => "profile photo", :class => "profile-photo") %>

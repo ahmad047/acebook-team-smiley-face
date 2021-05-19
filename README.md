@@ -5,7 +5,7 @@ CRUD login
 login --> session params user id
 
 form
-email: jasonrowsell@hotmail.co.uk
+email: email@mail.com
 password: originalpassword
 button(login)
 

@@ -29,10 +29,11 @@ main {
   background-color: var(--main-bg-color);
   grid-column: 2 / 3;
   display: flex;
-  /* justify-content: center; */
+  justify-content: center;
   align-items: center;
   flex-direction: column;
   padding-left: 2em;
+  padding-bottom: 2em;
 }
 
 .post{
@@ -41,9 +42,8 @@ main {
   /* align-content: stretch; */
   margin: 1em 2em;
   padding: 2em;
-  /* min-width: 200px; */
-  max-width: 500px;
-  /* max-width: 800px; */
+  align-items: stretch;
+  min-width: 400px;
   font-size: 1.2em;
 }
 
@@ -96,12 +96,17 @@ footer {
   float: left;
 }
 
-.nav-li a, .username {
+.nav-li a, .username{
   display: block;
   color: white;
   text-decoration: none;
   padding: 1.4em 1.6em;
 } 
+
+/* .nav-li input{
+  margin: 1.4em 1em 1.4em 0;
+  display: inline-block;
+} */
 
 .nav-li a:hover{
   background-color: lightblue;

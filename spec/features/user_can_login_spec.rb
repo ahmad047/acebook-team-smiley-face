@@ -3,7 +3,7 @@ require 'rails_helper'
 feature "Login" do
   scenario "Can login with existing credentials" do
     visit "/login"
-    fill_in "Email", with: "user@mail.com"
+    fill_in "Email", with: "bobross@mail.com"
     fill_in "Password", with: "password123"
     click_button "Login"
     expect(page.status_code).to be(200)

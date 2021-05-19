@@ -13,9 +13,9 @@ include SessionsHelper
 
       #session helper
       log_in(user)
-      redirect_to root_url
+      redirect_to root_url, notice: "Logged in successfully"
     else
-      flash.now[:alert] = "Invalid email/password combination"
+      flash[:alert] = "Invalid email/password combination"
       render 'new'
     end
   end

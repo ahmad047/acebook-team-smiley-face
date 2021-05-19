@@ -6,48 +6,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <%= stylesheet_link_tag "posts.css" %>
 </head>
+<% if !@user %>
   <div class="wrapper">
   <header class="header">
   <ul class="nav-ul">
     <li class="nav-li"><a href="#">BookFace</a></li>
-    <li class="nav-li"><a href="#">Home</a></li>
-    <li class="nav-li"><a href="#">Profile</a></li>
+    <%= link_to login_path do %>
+      Log In
+    <% end %>
     <%# <li class="nav-li">
       <input type="text" placeholder="search"></input>
       <input type="submit" placeholder="submit"></input>
     </li> %>
-    <% if @user %>
-      <%= button_to 'Log Out', logout_path, method: :delete  %>
-        <div class="left-side">
-  <ul>
-  <%= image_tag("profile_photo.png", :alt => "profile photo", :class => "profile-photo") %>
-  <a href="#"><li class="sidebar-li">Header!</li></a>
-  <%# probably change this to user  %> 
-  <a href="#"><li class="sidebar-li">Messages</li></a>
-  </ul>
-  </div>
-    <% else %>
-      <%= link_to login_path do %>
-        Log In
-      <% end %>
-    <% end %>
-    <li class="nav-li"  style="float:right"><a href="#"></a></li>
-    <li class="nav-li username" style="float:right">BOB ROSS</li>
     <%# probably change this to user  %> 
   </ul>
-  
   </header>
-  
   <body>
-  
-  <div class="left-side">
-  <ul>
-  <%= image_tag("profile_photo.png", :alt => "profile photo", :class => "profile-photo") %>
-  <a href="#"><li class="sidebar-li">Header!</li></a>
-  <%# probably change this to user  %> 
-  <a href="#"><li class="sidebar-li">Messages</li></a>
-  </ul>
-  </div>
   <main>
     <%= yield %>
   </main>
@@ -55,4 +29,38 @@
     <footer>@2021-team-smiley-face</footer>
   </div>
 </body>
+<% else %>
+<div class="wrapper">
+<header class="header">
+<ul class="nav-ul">
+  <li class="nav-li"><a href="#">BookFace</a></li>
+  <li class="nav-li"><a href="#">Home</a></li>
+  <li class="nav-li"><a href="#">Profile</a></li>
+  <%= button_to 'Log Out', logout_path, method: :delete  %>
+  <%# <li class="nav-li">
+    <input type="text" placeholder="search"></input>
+    <input type="submit" placeholder="submit"></input>
+  </li> %>
+  
+  <li class="nav-li username" style="float:right"><%= @user.first_name %></li>
+  <%# probably change this to user  %> 
+</ul>
+</header>
+<body>
+<div class="left-side">
+<ul>
+<%= image_tag("profile_photo.png", :alt => "profile photo", :class => "profile-photo") %>
+<a href="#"><li class="sidebar-li">Header!</li></a>
+<%# probably change this to user  %> 
+<a href="#"><li class="sidebar-li">Messages</li></a>
+</ul>
+</div>
+<main>
+  <%= yield %>
+</main>
+<div class="right-side">Right side, Padding // Extra features??? </div>
+  <footer>@2021-team-smiley-face</footer>
+</div>
+</body>
+<% end %>
 </html>

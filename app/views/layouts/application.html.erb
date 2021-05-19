@@ -37,13 +37,14 @@
   <li class="nav-li"><a href="#">Home</a></li>
   <li class="nav-li"><a href="#">Profile</a></li>
   <%= button_to 'Log Out', logout_path, method: :delete  %>
+  <%# probably try to figure out how to change the 
+      button into a link !! >:( %>
   <%# <li class="nav-li">
     <input type="text" placeholder="search"></input>
     <input type="submit" placeholder="submit"></input>
   </li> %>
   
   <li class="nav-li username" style="float:right"><%= @user.first_name %></li>
-  <%# probably change this to user  %> 
 </ul>
 </header>
 <body>

@@ -1,7 +1,6 @@
 class SessionsController < ApplicationController
 include SessionsHelper
 
-  # sessions/new
   def new
   end
 
@@ -20,7 +19,6 @@ include SessionsHelper
     end
   end
 
-  # DESTROY >:(
   def destroy
     session[:user_id] = nil
     redirect_to root_url, notice: "Logged out successfully"

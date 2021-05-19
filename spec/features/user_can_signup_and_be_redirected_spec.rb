@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.feature "Timeline", type: :feature do
-  scenario 'a user can sing up and be redirected' do
+feature "Signing up" do
+  scenario 'a user can sign up and be redirected' do
     visit '/users/new'
     fill_in 'user[first_name]', with: 'john'
     fill_in 'user[last_name]', with: 'doe'

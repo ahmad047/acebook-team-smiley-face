@@ -9,12 +9,14 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.all
     # can greet the logged in user
     # Can add this in in a before statement at the top - using a private method to do find function
     if session[:user_id]
       @user = User.find_by(id: session[:user_id])
     end
+
+    @post = Post.new
+    @posts = Post.all.order('created_at DESC')
   end
 
   private

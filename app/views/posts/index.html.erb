@@ -1,36 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <%= stylesheet_link_tag "posts.css" %>
+  <%= render 'header' %>
   <title>Feed</title>
-</head>
-<body>
-  <div class="wrapper">
-  <header class="header">
-  <ul class="nav-ul">
-    <li class="nav-li"><a href="#">BookFace</a></li>
-    <li class="nav-li"><a href="#">Home</a></li>
-    <li class="nav-li"><a href="#">Profile</a></li>
-    <%# <li class="nav-li">
-      <input type="text" placeholder="search"></input>
-      <input type="submit" placeholder="submit"></input>
-    </li> %>
-    <li class="nav-li"  style="float:right"><a href="#">Sign Out</a></li>
-    <li class="nav-li username" style="float:right">Bob Ross</li>
-  </ul>
-  </header>
-
-  <div class="left-side">
-  <ul>
-  <%= image_tag("profile_photo.png", :alt => "profile photo", :class => "profile-photo") %>
-  <a href="#"><li class="sidebar-li">Bob Ross</li></a>
-  <a href="#"><li class="sidebar-li">Messages</li></a>
-  </ul>
-  </div>
-    <main>
+  <%= render 'main' %>
+  
     <div class="new-post">
       <%= form_for @post do |form| %>
       <%= form.text_field :message, :placeholder => "What's on your mind" %>
@@ -39,18 +10,11 @@
       <% end %>
     </div>
 
-
-
       <% @posts.each do |post| %>
       <div class="post">
         <p><%= post.message %></p>
         <p class="posted-at">Posted <%= time_ago_in_words(post.created_at) %> ago</p>
       </div>
       <% end %>
-    </main>
 
-  <div class="right-side">Right side, Padding // Extra features??? </div>
-    <footer>@2021-team-smiley-face</footer>
-  </div>
-</body>
-</html>
+  <%= render 'footer' %>

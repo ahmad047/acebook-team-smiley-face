@@ -26,12 +26,12 @@ class UsersController < ApplicationController
     # refactor not to include respond_to |format|
     respond_to do |format|
       if @user.save
-        
+
         # remove format.html
         format.html { redirect_to root_url, notice: "User was successfully created." }
         # redirect_to root_url, notice: "User was successfully created."
-        format.json { render :show, status: :created, location: @user } 
-        # **Redirect and display notice** 
+        format.json { render :show, status: :created, location: @user }
+        # **Redirect and display notice**
       else
         # refactoring
         format.html { render :new, status: :unprocessable_entity }

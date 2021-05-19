@@ -1,3 +1,15 @@
+<% if !@user %>
+
+<%= link_to signup_path do %>
+  Sign Up
+  <% end %>
+
+  <%= link_to login_path do %>
+      Login
+    <% end %>
+
+<% else %>
+
 <div class="new-post">
   <%= form_for @post do |form| %>
   <%= form.text_field :message, :placeholder => "What's on your mind" %>
@@ -20,4 +32,6 @@
   <%= link_to login_path do %>
     Login
   <% end %>
+<% end %>
+
 <% end %>

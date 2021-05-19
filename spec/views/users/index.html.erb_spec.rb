@@ -6,14 +6,14 @@ RSpec.describe "users/index", type: :view do
       User.create!(
         first_name: "First Name",
         last_name: "Last Name",
-        email: "Email",
-        password: ""
+        email: "kerri@gmail.com",
+        password: "123456"
       ),
       User.create!(
         first_name: "First Name",
         last_name: "Last Name",
-        email: "Email",
-        password: ""
+        email: "phil@gmail.com",
+        password: "123456"
       )
     ])
   end
@@ -22,7 +22,8 @@ RSpec.describe "users/index", type: :view do
     render
     assert_select "tr>td", text: "First Name".to_s, count: 2
     assert_select "tr>td", text: "Last Name".to_s, count: 2
-    assert_select "tr>td", text: "Email".to_s, count: 2
-    assert_select "tr>td", text: "".to_s, count: 2
+    assert_select "tr>td", text: "kerri@gmail.com".to_s, count: 1
+    assert_select "tr>td", text: "phil@gmail.com".to_s, count: 1
+    # assert_select "tr>td", text: "".to_s, count: 2 // removed as it was wanting the password to appear on the page
   end
 end

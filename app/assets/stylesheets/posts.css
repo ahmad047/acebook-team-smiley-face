@@ -2,7 +2,7 @@
 :root{
   --main-bg-color: lavender;
   --header-bg-colour: paleturquoise;
-  --left-side-bg-color: lightpink;
+  --left-side-bg-color: #E0C9F8;
   --post-bg-color: white;
   --post-text: black;
   --posted-at-text: grey;
@@ -66,7 +66,7 @@ main {
   padding-top: 2em;
   background-color: var(--left-side-bg-color);
   grid-column: 1 / 2;
-  border-right: 2px solid black;
+  border-right: 2px solid #5915A2;
 }
 
 .right-side {
@@ -92,7 +92,7 @@ footer {
   background-color: paleturquoise;
 }
 
-.nav-li { 
+.nav-li {
   float: left;
 }
 
@@ -101,7 +101,7 @@ footer {
   color: white;
   text-decoration: none;
   padding: 1.4em 1.6em;
-} 
+}
 
 /* .nav-li input{
   margin: 1.4em 1em 1.4em 0;
@@ -122,4 +122,5 @@ footer {
 
 .profile-photo {
   width: 80px;
+  border-radius: 10px
 }

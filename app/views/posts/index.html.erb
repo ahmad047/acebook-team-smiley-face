@@ -3,11 +3,6 @@
 <%= link_to signup_path do %>
   Sign Up
   <% end %>
-
-  <%= link_to login_path do %>
-      Login
-    <% end %>
-
 <% else %>
 
 <div class="new-post">
@@ -27,11 +22,6 @@
 
 <% if @user %>
   Logged in as: <%= @user.email %>
-  <%= button_to "Logout", logout_path, method: :delete %>
-  <% else %>
-  <%= link_to login_path do %>
-    Login
-  <% end %>
 <% end %>
 
 <% end %>

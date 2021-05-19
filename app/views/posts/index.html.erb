@@ -1,15 +1,23 @@
+<div class="new-post">
+  <%= form_for @post do |form| %>
+  <%= form.text_field :message, :placeholder => "What's on your mind" %>
 
-    <div class="new-post">
-      <%= form_for @post do |form| %>
-      <%= form.text_field :message, :placeholder => "What's on your mind" %>
+  <%= form.submit "Submit" %>
+  <% end %>
+</div>
 
-      <%= form.submit "Submit" %>
-      <% end %>
-    </div>
+  <% @posts.each do |post| %>
+  <div class="post">
+    <p><%= post.message %></p>
+    <p class="posted-at">Posted <%= time_ago_in_words(post.created_at) %> ago</p>
+  </div>
+  <% end %>
 
-      <% @posts.each do |post| %>
-      <div class="post">
-        <p><%= post.message %></p>
-        <p class="posted-at">Posted <%= time_ago_in_words(post.created_at) %> ago</p>
-      </div>
-      <% end %>
+<% if @user %>
+  Logged in as: <%= @user.email %>
+  <%= button_to "Logout", logout_path, method: :delete %>
+  <% else %>
+  <%= link_to login_path do %>
+    Login
+  <% end %>
+<% end %>

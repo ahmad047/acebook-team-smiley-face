@@ -7,12 +7,12 @@ include SessionsHelper
 
   # create session based on login
   def create
-    user = User.find_by(email: params[:email].downcase)
+    @user = User.find_by(email: params[:email].downcase)
 
-    if user && user.authenticate(params[:password])
+    if @user && @user.authenticate(params[:password])
 
       #session helper
-      log_in(user)
+      log_in(@user)
       redirect_to root_url, notice: "Logged in successfully"
     else
       flash[:alert] = "Invalid email/password combination"
@@ -22,5 +22,7 @@ include SessionsHelper
 
   # DESTROY >:(
   def destroy
+    session[:user_id] = nil
+    redirect_to root_url, notice: "Logged out successfully"
   end
 end

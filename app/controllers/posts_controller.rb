@@ -10,6 +10,7 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all
+    # can greet the logged in user
     if session[:user_id]
       @user = User.find_by(id: session[:user_id])
     end

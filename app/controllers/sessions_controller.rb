@@ -8,6 +8,7 @@ include SessionsHelper
   def create
     @user = User.find_by(email: params[:email].downcase)
 
+    # authenticate comes from 'has_secure_password'
     if @user && @user.authenticate(params[:password])
 
       #session helper

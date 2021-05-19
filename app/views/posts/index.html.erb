@@ -1,7 +1,4 @@
-  <%= render 'header' %>
-  <title>Feed</title>
-  <%= render 'main' %>
-  
+
     <div class="new-post">
       <%= form_for @post do |form| %>
       <%= form.text_field :message, :placeholder => "What's on your mind" %>
@@ -16,5 +13,3 @@
         <p class="posted-at">Posted <%= time_ago_in_words(post.created_at) %> ago</p>
       </div>
       <% end %>
-
-  <%= render 'footer' %>

@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
   resources :users
 
+  post 'users/:id', to: 'users#show'
+  post 'users/:id/edit', to: 'users#edit'
   delete '/users', to: 'users#destroy'
 
 

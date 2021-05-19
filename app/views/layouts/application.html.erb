@@ -10,11 +10,12 @@
   <header class="header">
   <ul class="nav-ul">
     <li class="nav-li"><a href="">BookFace</a></li>
-    <li class="nav-li"><a href="/">Home</a></li>
 
     <%# shows header items only if user is logged in  %>
     <% if @user %>
-      <li class="nav-li"><a href="<%= @user ? "users/#{@user.id}" : '' %>">Profile</a></li>
+    <li class="nav-li"><a href="/">Home</a></li>
+      <li class="nav-li"><%= link_to "VIEW ALL USERS", users_path, method: :show %></li>
+      <li class="nav-li"><a href="users/<%= @user.id%>">Profile</a></li>
       <li class="nav-li"  style="float:right"><a href="/logout" > Sign Out </a></li>
     <% end %>
     <li class="nav-li username" style="float:right"><%= @user ? "#{@user.first_name}" : '' %></li>

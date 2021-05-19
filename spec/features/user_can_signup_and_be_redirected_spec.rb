@@ -12,9 +12,3 @@ RSpec.feature "Timeline", type: :feature do
     expect(current_path).to eq(root_path)
   end
 end
-
-
-# visit '/sessions'
-# fill_in(:username, with: 'johndoe')
-# fill_in(:password, with: 'password123')
-# click_button('sign in')

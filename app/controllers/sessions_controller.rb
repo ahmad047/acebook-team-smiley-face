@@ -21,8 +21,6 @@ include SessionsHelper
 
   def destroy
     session[:user_id] = nil
-    # redirect_to root_url, notice: "Logged out successfully"
-    redirect_to login_path, notice: "Logged out successfully"
-
+    redirect_to root_url, notice: "Logged out successfully"
   end
 end

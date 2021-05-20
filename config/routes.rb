@@ -11,11 +11,6 @@ Rails.application.routes.draw do
   get '/logout',to: 'sessions#destroy'
  
   resources :users
-  
-  # get '/users/:id', to: 'users#show'
-  # post 'users/:id', to: 'users#show'
-  # post 'users/:id/edit', to: 'users#edit'
-  # delete '/users', to: 'users#destroy'
 
   resources :posts
 end

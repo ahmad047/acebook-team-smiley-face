@@ -11,23 +11,25 @@
   <ul class="nav-ul">
     <li class="nav-li"><a href="/">BookFace</a></li>
     <%# /new html %>
-    <%# shows header squiggle items only if user is logged in  %>
+    <%# shows header items only if user is logged in  %>
     <% if @user %>
       <li class="nav-li">
         <%= link_to 'Profile', user_path(@user)%>
       </li>
       <li class="nav-li"  style="float:right"><a href="/logout" > Sign Out </a></li>
-    <%# to change %>
     <% end %>
     <li class="nav-li username" style="float:right"><%= @user ? "#{@user.first_name}" : '' %></li>
   </ul>
+  </header>
   <body>
   <div class="left-side">
   <ul>
-  <%= image_tag("profile_photo.png", :alt => "profile photo", :class => "profile-photo") %>
-  <a href="#"><li class="sidebar-li">Header!</li></a>
-  <%# probably change this to user  %> 
-  <a href="#"><li class="sidebar-li">Messages</li></a>
+
+  <%= @user ? image_tag("profile_photo.png", :alt => "profile photo", :class => "profile-photo") : '' %>
+  <% if @user %>
+    <a href="#"><li class="sidebar-li">hi, <%= @user.first_name%> </li></a>
+    <a href="#"><li class="sidebar-li">messages</li></a>
+  <% end %>
   </ul>
   </div>
   <main>

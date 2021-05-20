@@ -22,6 +22,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+
     if @user.save
       log_in(@user)
       redirect_to root_url, notice: "Signed up successfully"
@@ -62,6 +63,6 @@ class UsersController < ApplicationController
     # Only allow a list of trusted parameters through.
     def user_params
       #params.require(user_id)
-      params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
+      params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :avatar)
     end
 end

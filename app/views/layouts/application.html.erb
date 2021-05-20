@@ -9,16 +9,16 @@
   <div class="wrapper">
   <header class="header">
   <ul class="nav-ul">
-    <li class="nav-li"><a href="#">BookFace</a></li>
-    <li class="nav-li"><a href="#">Home</a></li>
-    <li class="nav-li"><a href="#">Profile</a></li>
-    <%# <li class="nav-li">
-      <input type="text" placeholder="search"></input>
-      <input type="submit" placeholder="submit"></input>
-    </li> %>
-    <li class="nav-li"  style="float:right"><a href="#">Sign Out</a></li>
-    <li class="nav-li username" style="float:right">BOB ROSS</li>
-    <%# probably change this to user  %> 
+    <li class="nav-li"><a href="/">BookFace</a></li>
+    <%# /new html %>
+    <%# shows header squiggle items only if user is logged in  %>
+    <% if @user %>
+      <li class="nav-li">
+        <%= link_to 'Profile', user_path(@user)%>
+      </li>
+      <li class="nav-li"  style="float:right"><a href="/logout" > Sign Out </a></li>
+    <% end %>
+    <li class="nav-li username" style="float:right"><%= @user ? "#{@user.first_name}" : '' %></li>
   </ul>
   </header>
   <body>

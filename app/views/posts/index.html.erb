@@ -1,9 +1,17 @@
+
 <% if !@user %>
 
 <%= link_to signup_path do %>
   Sign Up
   <% end %>
 <% else %>
+
+<% flash.each do |type, msg| %>
+  <div>
+    <%= msg %>
+  </div>
+<% end %>
+
 
 <div class="new-post">
   <%= form_for @post do |form| %>

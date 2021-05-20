@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
   include SessionsHelper
-  before_action :set_user, only: %i[ show edit update destroy ]
-
+  before_action :set_user, only: %i[ show edit update ]
   # GET /users or /users.json
   def index
     @users = User.all
@@ -21,25 +20,13 @@ class UsersController < ApplicationController
   end
 
   # POST /users or /users.json
+
   def create
     @user = User.new(user_params)
-
-
-    # refactor not to include respond_to |format|
-    respond_to do |format|
-      if @user.save
-        
-        # remove format.html
-        format.html { redirect_to root_url, notice: "User was successfully created." }
-        # redirect_to root_url, notice: "User was successfully created."
-        format.json { render :show, status: :created, location: @user } 
-        # **Redirect and display notice** 
-        log_in(@user)
-      else
-        # refactoring
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
+    if @user.save
+      redirect_to root_url, notice: "Signed up successfully"
+    else
+      render :new
     end
   end
 
@@ -58,6 +45,7 @@ class UsersController < ApplicationController
 
   # DELETE /users/1 or /users/1.json
   def destroy
+    @user = User.find_by(params[:id])
     @user.destroy
     respond_to do |format|
       format.html { redirect_to users_url, notice: "User was successfully destroyed." }

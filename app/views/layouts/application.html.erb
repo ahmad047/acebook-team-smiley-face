@@ -6,22 +6,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <%= stylesheet_link_tag "posts.css" %>
 </head>
-<% if !@user %>
   <div class="wrapper">
   <header class="header">
   <ul class="nav-ul">
-    <li class="nav-li"><a href="#">BookFace</a></li>
-    <%= link_to login_path do %>
-      Log In
+    <li class="nav-li"><a href="/">BookFace</a></li>
+    <%# /new html %>
+    <%# shows header squiggle items only if user is logged in  %>
+    <% if @user %>
+      <li class="nav-li">
+        <%= link_to 'Profile', user_path(@user)%>
+      </li>
+      <li class="nav-li"  style="float:right"><a href="/logout" > Sign Out </a></li>
+    <%# to change %>
     <% end %>
-    <%# <li class="nav-li">
-      <input type="text" placeholder="search"></input>
-      <input type="submit" placeholder="submit"></input>
-    </li> %>
-    <%# probably change this to user  %> 
+    <li class="nav-li username" style="float:right"><%= @user ? "#{@user.first_name}" : '' %></li>
   </ul>
-  </header>
   <body>
+  <div class="left-side">
+  <ul>
+  <%= image_tag("profile_photo.png", :alt => "profile photo", :class => "profile-photo") %>
+  <a href="#"><li class="sidebar-li">Header!</li></a>
+  <%# probably change this to user  %> 
+  <a href="#"><li class="sidebar-li">Messages</li></a>
+  </ul>
+  </div>
   <main>
     <%= yield %>
   </main>
@@ -29,39 +37,4 @@
     <footer>@2021-team-smiley-face</footer>
   </div>
 </body>
-<% else %>
-<div class="wrapper">
-<header class="header">
-<ul class="nav-ul">
-  <li class="nav-li"><a href="#">BookFace</a></li>
-  <li class="nav-li"><a href="#">Home</a></li>
-  <li class="nav-li"><a href="#">Profile</a></li>
-  <%= button_to 'Log Out', logout_path, method: :delete  %>
-  <%# probably try to figure out how to change the 
-      button into a link !! >:( %>
-  <%# <li class="nav-li">
-    <input type="text" placeholder="search"></input>
-    <input type="submit" placeholder="submit"></input>
-  </li> %>
-  
-  <li class="nav-li username" style="float:right"><%= @user.first_name %></li>
-</ul>
-</header>
-<body>
-<div class="left-side">
-<ul>
-<%= image_tag("profile_photo.png", :alt => "profile photo", :class => "profile-photo") %>
-<a href="#"><li class="sidebar-li">Header!</li></a>
-<%# probably change this to user  %> 
-<a href="#"><li class="sidebar-li">Messages</li></a>
-</ul>
-</div>
-<main>
-  <%= yield %>
-</main>
-<div class="right-side">Right side, Padding // Extra features??? </div>
-  <footer>@2021-team-smiley-face</footer>
-</div>
-</body>
-<% end %>
 </html>

@@ -23,6 +23,7 @@
 
   <% @posts.each do |post| %>
   <div class="post">
+    <p><%= @user.first_name %></p>
     <p><%= post.message %></p>
     <p class="posted-at">Posted <%= time_ago_in_words(post.created_at) %> ago</p>
   </div>

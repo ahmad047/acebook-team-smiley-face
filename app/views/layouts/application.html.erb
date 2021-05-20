@@ -25,9 +25,12 @@
   <div class="left-side">
   <ul>
 
-  <!-- <%= @user ? image_tag("profile_photo.png", :alt => "profile photo", :class => "profile-photo") : '' %> -->
-  <% if @user.avatar.attached? %>
+  
+  <% if @user %>
   <image id="profile_pic" src="<%= (url_for(@user.avatar)) %>  ">
+  <% else %>
+  <%# if user doesnt exists %>
+  <%= image_tag("profile_photo.png", :alt => "profile photo", :class => "profile-photo") %>
 <% end %>
   <% if @user %>
     <a href="#"><li class="sidebar-li">hi, <%= @user.first_name%> </li></a>

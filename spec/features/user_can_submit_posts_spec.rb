@@ -4,7 +4,7 @@ require 'rails_helper'
 feature "Timeline" do
   scenario "Can submit posts and view them" do
     visit "/posts"
-    click_link "New post"
+    click_button "New post"
     fill_in "Message", with: "Hello, world!"
     click_button "Submit"
     expect(page).to have_content("Hello, world!")

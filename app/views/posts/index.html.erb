@@ -14,11 +14,17 @@
 
 
 <div class="new-post">
-  <%= form_for @post do |form| %>
+<%= form_with model: @post do |form| %>
   <%= form.text_field :message, :placeholder => "What's on your mind" %>
 
   <%= form.submit "Submit" %>
-  <% end %>
+
+  <p>
+    <%= form.label :body %><br>
+    <%= form.text_area :body %>
+  </p>
+<% end %>
+
 </div>
 
   <% @posts.each do |post| %>

@@ -28,14 +28,12 @@
   
   <% if current_user %>
   <image id="profile_pic" src="<%= (url_for(@user.avatar)) %>  ">
+  <a href="#"><li class="sidebar-li">hi, <%= @user.first_name%> </li></a>
+  <a href="#"><li class="sidebar-li">messages</li></a>
   <% else %>
   <%# if user doesnt exists %>
   <%= image_tag("profile_photo.png", :alt => "profile photo", :class => "profile-photo") %>
 <% end %>
-  <% if @user %>
-    <a href="#"><li class="sidebar-li">hi, <%= @user.first_name%> </li></a>
-    <a href="#"><li class="sidebar-li">messages</li></a>
-  <% end %>
   </ul>
   </div>
   <main>

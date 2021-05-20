@@ -4,6 +4,7 @@
 <%= link_to signup_path do %>
   Sign Up
   <% end %>
+
 <% else %>
 
 <% flash.each do |type, msg| %>
@@ -18,21 +19,24 @@
   <%= form.text_field :message, :placeholder => "What's on your mind" %>
 
   <%= form.submit "Submit" %>
-
-  <p>
-    <%= form.label :body %><br>
-    <%= form.text_area :body %>
-  </p>
 <% end %>
 
 </div>
-
   <% @posts.each do |post| %>
-  <div class="post">
-    <p><%= post.message %></p>
+    <div class="post">
+    <strong><%= post.message %></strong>
     <p class="posted-at">Posted <%= time_ago_in_words(post.created_at) %> ago</p>
     <p class="posted-by">Posted by <%= post.user.first_name %></p>
-  </div>
+      <% if post.comments %>
+        <strong>Comments</strong>
+        <% post.comments.each do |comment| %>
+          <p><%= comment.user.first_name %>: <%= comment.content %></p>
+        <% end %>
+      <% end %>
+    <%= form_with model: [post, post.comments.new] do |f| %>
+      <%= f.text_field :content, placeholder: 'Add a comment...' %>
+    <% end %>
+</div>
   <% end %>
 
 <% if @user %>

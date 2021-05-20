@@ -1,7 +1,7 @@
 <div class="new-post">
   <%= form_for @post do |form| %>
   <%= form.text_field :message, :placeholder => "What's on your mind" %>
-
+  
   <%= form.submit "Submit" %>
   <% end %>
 </div>
@@ -10,6 +10,7 @@
   <div class="post">
     <p><%= post.message %></p>
     <p class="posted-at">Posted <%= time_ago_in_words(post.created_at) %> ago</p>
+    <p>Posted by <%= post.user.first_name %> </p>
   </div>
   <% end %>
 

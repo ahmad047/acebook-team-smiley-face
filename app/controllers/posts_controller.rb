@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  include ApplicationHelper
   def new
     @post = Post.new
   end
@@ -22,6 +23,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:message)
+    params.require(:post).permit(:message, :user_id)
   end
 end

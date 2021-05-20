@@ -9,8 +9,8 @@ feature "User names appear with their posts" do
     fill_in 'user[password]', with: '1234'
     fill_in 'user[password_confirmation]', with: '1234'
     click_button 'Create User'
-    fill_in "post[message]", with: "Hello, world!"
-    click_button "Submit"
-    expect(page).to have_content("Posted by Richard")
+    fill_in 'post[message]', with: 'Hello, world!'
+    click_button 'Submit'
+    expect(page).to have_content('Posted by Richard')
   end
 end

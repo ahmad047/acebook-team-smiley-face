@@ -24,12 +24,10 @@
   <body>
   <div class="left-side">
   <ul>
-
-  <%= @user ? image_tag("profile_photo.png", :alt => "profile photo", :class => "profile-photo") : '' %>
-  <% if @user %>
-    <a href="#"><li class="sidebar-li">hi, <%= @user.first_name%> </li></a>
-    <a href="#"><li class="sidebar-li">messages</li></a>
-  <% end %>
+  <%= image_tag("profile_photo.png", :alt => "profile photo", :class => "profile-photo") %>
+  <a href="#"><li class="sidebar-li">Header!</li></a>
+  <%# probably change this to user  %> 
+  <a href="#"><li class="sidebar-li">Messages</li></a>
   </ul>
   </div>
   <main>

@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   post '/signup', to: 'users#create'
 
   get '/logout',to: 'sessions#destroy'
+
+  post '/likes', to: 'posts#likes'
  
   resources :users
 

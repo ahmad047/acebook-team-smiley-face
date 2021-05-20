@@ -25,6 +25,7 @@
   <div class="post">
     <p><%= post.message %></p>
     <p class="posted-at">Posted <%= time_ago_in_words(post.created_at) %> ago</p>
+    <p class="posted-by">Posted by <%= post.user.first_name %></p>
   </div>
   <% end %>
 

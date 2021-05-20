@@ -16,5 +16,7 @@ RSpec.feature "Likes", type: :feature do
     expect(page).to have_selector(:link_or_button, 'Like')
     click_button 'Like'
     expect(page).to have_content 'Likes: 1'
+    click_button 'Like'
+    expect(page).to have_content 'Likes: 2'
   end
 end

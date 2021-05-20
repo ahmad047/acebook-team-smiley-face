@@ -17,33 +17,21 @@ class PostsController < ApplicationController
     if session[:user_id]
       @user = User.find_by(id: session[:user_id])
     end
-    @likes = $LIKES
     @post = Post.new
     @posts = Post.all.order('created_at DESC')
   end
 
   def likes
-    @post = Post.find_by(id: params[:id])
-    p @post
-    # p Post.find_by(post[:post_id])
-    # @post = Post.find_by()
-    # if @post.update(user_params)
-    $LIKES += 1
-    # p params[:post_id]
+    post = Post.find_by(id: params[:id])
+    if post.likes.nil?
+      post.update(:likes => 1)
+    else
+      post.update(:likes => (post.likes += 1))
+    end
+
     redirect_to posts_url
   end
 
-  # def update
-  #   respond_to do |format|
-  #     if @user.update(user_params)
-  #       format.html { redirect_to @user, notice: "User was successfully updated." }
-  #       format.json { render :show, status: :ok, location: @user }
-  #     else
-  #       format.html { render :edit, status: :unprocessable_entity }
-  #       format.json { render json: @user.errors, status: :unprocessable_entity }
-  #     end
-  #   end
-  # end
 
   private
 

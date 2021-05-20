@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   get '/logout',to: 'sessions#destroy'
 
-  post '/posts/likes', to: 'posts#likes'
+  post '/likes/:id', to: 'posts#likes'
  
   resources :users
 

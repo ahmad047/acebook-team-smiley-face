@@ -23,11 +23,7 @@ class PostsController < ApplicationController
 
   def likes
     post = Post.find_by(id: params[:id])
-    if post.likes.nil?
-      post.update(:likes => 1)
-    else
-      post.update(:likes => (post.likes += 1))
-    end
+    post.update(:likes => (post.likes += 1))
 
     redirect_to posts_url
   end

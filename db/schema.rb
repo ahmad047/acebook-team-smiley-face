@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 2021_05_18_110935) do
 
   create_table "posts", force: :cascade do |t|
     t.string "message"
-    t.integer "likes"
+    t.integer "likes", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

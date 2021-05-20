@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  include SessionsHelper
   before_action :set_user, only: %i[ show edit update ]
   # GET /users or /users.json
   def index
@@ -24,6 +23,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      log_in(@user)
       redirect_to root_url, notice: "Signed up successfully"
     else
       render :new

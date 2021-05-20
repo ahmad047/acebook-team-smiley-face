@@ -12,10 +12,10 @@ Rails.application.routes.draw do
  
   resources :users
   
-  get '/users/:id', to: 'users#show'
-  post 'users/:id', to: 'users#show'
-  post 'users/:id/edit', to: 'users#edit'
-  delete '/users', to: 'users#destroy'
+  # get '/users/:id', to: 'users#show'
+  # post 'users/:id', to: 'users#show'
+  # post 'users/:id/edit', to: 'users#edit'
+  # delete '/users', to: 'users#destroy'
 
   resources :posts
 end

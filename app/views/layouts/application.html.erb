@@ -17,10 +17,10 @@
         <%= link_to 'Profile', user_path(@user)%>
       </li>
       <li class="nav-li"  style="float:right"><a href="/logout" > Sign Out </a></li>
+    <%# to change %>
     <% end %>
     <li class="nav-li username" style="float:right"><%= @user ? "#{@user.first_name}" : '' %></li>
   </ul>
-  </header>
   <body>
   <div class="left-side">
   <ul>

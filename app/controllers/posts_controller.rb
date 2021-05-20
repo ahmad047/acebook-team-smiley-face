@@ -22,6 +22,14 @@ class PostsController < ApplicationController
     @posts = Post.all.order('created_at DESC')
   end
 
+  def destroy
+    @post = Post.find(params[:id])
+  
+    @post.destroy
+    flash[:success] = "Post deleted :("
+    redirect_to root_path
+  end
+
   private
 
   def post_params

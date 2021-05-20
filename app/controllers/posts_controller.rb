@@ -23,13 +23,33 @@ class PostsController < ApplicationController
   end
 
   def likes
+    @post = Post.find_by(id: params[:id])
+    p @post
+    # p Post.find_by(post[:post_id])
+    # @post = Post.find_by()
+    # if @post.update(user_params)
     $LIKES += 1
+    # p params[:post_id]
     redirect_to posts_url
   end
+
+  # def update
+  #   respond_to do |format|
+  #     if @user.update(user_params)
+  #       format.html { redirect_to @user, notice: "User was successfully updated." }
+  #       format.json { render :show, status: :ok, location: @user }
+  #     else
+  #       format.html { render :edit, status: :unprocessable_entity }
+  #       format.json { render json: @user.errors, status: :unprocessable_entity }
+  #     end
+  #   end
+  # end
 
   private
 
   def post_params
-    params.require(:post).permit(:message)
+    params.require(:post).permit(:message, :likes)
   end
+
+  
 end

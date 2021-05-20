@@ -26,7 +26,8 @@
     <p><%= post.message %></p>
     <p class="posted-at">Posted <%= time_ago_in_words(post.created_at) %> ago</p>
     <p>Likes: <%= @likes %></p>
-    <%= button_to likes_path do %>
+    <p>post: <%= post.id %></p>
+    <%= button_to '/posts/likes' do %>
       Like
     <% end %>
   </div>

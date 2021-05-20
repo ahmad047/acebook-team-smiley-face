@@ -9,7 +9,8 @@
   <% @posts.each do |post| %>
   <div class="post">
     <p><%= post.message %></p>
-    <p class="posted-at">Posted <%= time_ago_in_words(post.created_at) %> ago</p>
+    <p class="posted-at"><%= time_ago_in_words(post.created_at) %> ago</p>
+    <%# Posted by <%= @user.first_name%>
   </div>
   <% end %>
 

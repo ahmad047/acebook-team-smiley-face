@@ -17,6 +17,7 @@
 <div class="new-post">
 <%= form_with model: @post do |form| %>
   <%= form.text_field :message, :placeholder => "What's on your mind?" %>
+  
   <%= form.submit "Submit" %>
 <% end %>
 

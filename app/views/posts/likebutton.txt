@@ -1,0 +1,2 @@
+<%= button_to 'Like', post_likes_path(@post), method: :post %>
+Like Button

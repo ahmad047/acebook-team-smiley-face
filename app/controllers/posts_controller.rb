@@ -8,7 +8,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.create(post_params)
-    redirect_to posts_url
+    redirect_to root_url
   end
 
   def index
@@ -24,9 +24,12 @@ class PostsController < ApplicationController
   def likes
     post = Post.find_by(id: params[:id])
     post.update(:likes => (post.likes += 1))
-
-    redirect_to posts_url
+    redirect_to root_url
   end
+
+  # def show
+  #   @post = Post.find(params[:id])
+  # end
 
 
   private

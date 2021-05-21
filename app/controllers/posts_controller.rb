@@ -1,25 +1,23 @@
 class PostsController < ApplicationController
+  POSTS_PER_PAGE = 4  
+
   def new
     @post = Post.new
   end
 
   def create
     @post = Post.create(post_params.merge(user_id: current_user.id))
-
-    # @post = Post.create(post_params)
-    # @post.user = current_user
-    redirect_to posts_url
+    redirect_to root_url
   end
 
   def index
-    # can greet the logged in user
-    # Can add this in in a before statement at the top - using a private method to do find function
     if session[:user_id]
       @user = User.find_by(id: session[:user_id])
     end
 
     @post = Post.new
-    @posts = Post.all.order('created_at DESC')
+    @page = params.fetch(:page, 0).to_i
+    @posts = Post.offset(@page * POSTS_PER_PAGE).limit(POSTS_PER_PAGE).order('created_at DESC')
     
   end
 

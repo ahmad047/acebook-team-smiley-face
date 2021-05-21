@@ -22,7 +22,6 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-
     if @user.save
       log_in(@user)
       redirect_to root_url, notice: "Signed up successfully"
@@ -49,7 +48,7 @@ class UsersController < ApplicationController
     @user = User.find_by(params[:id])
     @user.destroy
     respond_to do |format|
-      format.html { redirect_to users_url, notice: "User was successfully destroyed." }
+      format.html { redirect_to users_url, notice: "User was successfully annihilated." }
       format.json { head :no_content }
     end
   end
@@ -65,4 +64,8 @@ class UsersController < ApplicationController
       #params.require(user_id)
       params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :avatar)
     end
+
+    # def valid_email
+    #   valid = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
+    # end
 end

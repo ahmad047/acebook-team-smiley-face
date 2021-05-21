@@ -15,5 +15,9 @@
   <%= @user.email %>
 </p>
 
-<%= link_to 'Edit', edit_user_path %>
+<div>
+  <strong>Your posts:</strong>
+  <% @user_posts %>
+</div>
 
+<%= link_to 'Edit', edit_user_path %>

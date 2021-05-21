@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe PostsController, type: :controller do
+
+  let(:user) { User.new }
+  before { allow(controller).to receive(:current_user) { user } }
+
   describe "GET /new " do
     it "responds with 200" do
       get :new
@@ -10,8 +14,9 @@ RSpec.describe PostsController, type: :controller do
 
   describe "POST /" do
     it "responds with 200" do
+      # allow(subject).to receive(:user_id)
       post :create, params: { post: { message: "Hello, world!" } }
-      expect(response).to redirect_to(posts_url)
+      expect(response).to redirect_to(root_url)
     end
 
     it "creates a post" do

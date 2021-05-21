@@ -17,6 +17,8 @@
 <div class="new-post">
 <%= form_with model: @post do |form| %>
   <%= form.text_field :message, :placeholder => "What's on your mind?" %>
+  <br>
+  <%= form.file_field :picture %>
   <%= form.submit "Submit" %>
 <% end %>
 
@@ -24,6 +26,9 @@
     <% @posts.each do |post| %>
       <div class="post">
       <strong><%= post.message %></strong>
+      <% if post.picture.attached? %>
+        <%= image_tag(url_for(post.picture), class: "post-picture") %>
+      <% end %>
       <p class="posted-at">Posted <%= time_ago_in_words(post.created_at) %> ago</p>
       <p class="posted-by">Posted by <%= post.user.first_name %></p>
         <% if post.user == current_user %>

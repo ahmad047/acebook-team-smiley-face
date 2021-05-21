@@ -1,5 +1,7 @@
 class LikesController < ApplicationController
     before_action :find_post  
+    before_action :find_like, only: [:destroy]
+
     
     def create
         if already_liked?
@@ -21,6 +23,10 @@ class LikesController < ApplicationController
         params[:post_id]).exists?
     end
 
+    def find_like
+        @like = @post.likes.find(params[:id])
+    end
+
     def destroy
         if !(already_liked?)
           flash[:notice] = "Cannot unlike"
@@ -28,6 +34,7 @@ class LikesController < ApplicationController
           @like.destroy
         end
         redirect_to post_path(@post)
+        
     end
 
 end

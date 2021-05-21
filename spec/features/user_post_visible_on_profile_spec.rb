@@ -8,7 +8,7 @@ feature 'User profile' do
     click_button 'Login'
     fill_in 'post[message]', with: 'Hello, world!'
     click_button 'Submit'
-    visit '/users/1'
+    visit '/'
     expect(page).to have_content 'Hello, world!'
   end
 end

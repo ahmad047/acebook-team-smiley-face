@@ -82,7 +82,7 @@ footer {
   text-align: center;
   grid-column: 1 / 4;
 }
-#profile_pic {
+.profile_pic {
   border: 1px solid transparent;
   border-radius: 50%;
   width: 60px;

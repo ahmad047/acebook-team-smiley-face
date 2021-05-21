@@ -7,7 +7,8 @@ class UsersController < ApplicationController
 
   # GET /users/1 or /users/1.json
   def show
-    @user_posts = Post.find_by(id: session[:user_id])
+    @user = User.find(params[:id])
+    @posts = @user.posts.all.order('created_at DESC')
   end
 
   # GET /users/new

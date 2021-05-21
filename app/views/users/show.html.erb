@@ -17,7 +17,12 @@
 
 <div>
   <strong>Your posts:</strong>
-  <% @user_posts %>
+  <% @posts.each do |post| %>
+    <div class="post">
+      <p><%= post.message %></p>
+      <p class="posted-at">Posted <%= time_ago_in_words(post.created_at) %> ago</p>
+    </div>
+  <% end %>
 </div>
 
 <%= link_to 'Edit', edit_user_path %>

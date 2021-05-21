@@ -65,7 +65,4 @@ class UsersController < ApplicationController
       params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :avatar)
     end
 
-    # def valid_email
-    #   valid = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
-    # end
 end

@@ -1,9 +1,4 @@
 class PostsController < ApplicationController
-  POSTS_PER_PAGE = 4  
-
-  def new
-    @post = Post.new
-  end
 
   def create
     @post = Post.create(post_params.merge(user_id: current_user.id))
@@ -16,9 +11,7 @@ class PostsController < ApplicationController
     end
 
     @post = Post.new
-    @page = params.fetch(:page, 0).to_i
-    @posts = Post.offset(@page * POSTS_PER_PAGE).limit(POSTS_PER_PAGE).order('created_at DESC')
-    
+    @posts = Post.all.order('created_at DESC')
   end
 
   def destroy

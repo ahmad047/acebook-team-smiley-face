@@ -12,39 +12,36 @@
   </div>
 <% end %>
 
+<p>Logged in as: <%= @user.email %></p>
 
 <div class="new-post">
 <%= form_with model: @post do |form| %>
-  <%= form.text_field :message, :placeholder => "What's on your mind" %>
-
+  <%= form.text_field :message, :placeholder => "What's on your mind?" %>
   <%= form.submit "Submit" %>
 <% end %>
 
-</div>
-  <% @posts.each do |post| %>
-    <div class="post">
-    <strong><%= post.message %></strong>
-    <p class="posted-at">Posted <%= time_ago_in_words(post.created_at) %> ago</p>
-    <p class="posted-by">Posted by <%= post.user.first_name %></p>
-      <% if post.user == current_user %>
-        <%= button_to "delete post", post, :method => "delete" %>
-       <% end %>
-      <% if post.comments %>
-        <strong>Comments</strong>
-        <% post.comments.each do |comment| %>
-          <p><%= comment.user.first_name %>: <%= comment.content %></p>
-            <% if comment.user == current_user %>
-              <%= button_to "delete comment", post_comment_path(post, comment), :method => "delete" %>
-            <% end %>
+  </div>
+    <% @posts.each do |post| %>
+      <div class="post">
+      <strong><%= post.message %></strong>
+      <p class="posted-at">Posted <%= time_ago_in_words(post.created_at) %> ago</p>
+      <p class="posted-by">Posted by <%= post.user.first_name %></p>
+        <% if post.user == current_user %>
+          <%= button_to "delete post", post, :method => "delete" %>
         <% end %>
+        <% if post.comments %>
+          <strong>Comments</strong>
+          <% post.comments.each do |comment| %>
+            <p><%= comment.user.first_name %>: <%= comment.content %></p>
+              <% if comment.user == current_user %>
+                <%= button_to "delete comment", post_comment_path(post, comment), :method => "delete" %>
+              <% end %>
+          <% end %>
+        <% end %>
+      <%= form_with model: [post, post.comments.new] do |f| %>
+        <%= f.text_field :content, placeholder: 'Add a comment...' %>
       <% end %>
-    <%= form_with model: [post, post.comments.new] do |f| %>
-      <%= f.text_field :content, placeholder: 'Add a comment...' %>
+  </div>
     <% end %>
-</div>
-  <% end %>
 
-<% if @user %>
-  Logged in as: <%= @user.email %>
-<% end %>
 <% end %>

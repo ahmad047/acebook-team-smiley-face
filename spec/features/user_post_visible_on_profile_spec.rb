@@ -6,7 +6,6 @@ feature 'User profile' do
     fill_in 'Email', with: 'bobross@mail.com'
     fill_in 'Password', with: 'password123'
     click_button 'Login'
-    p body
     fill_in 'post[message]', with: 'Hello, world!'
     click_button 'Submit'
     visit '/users/1'

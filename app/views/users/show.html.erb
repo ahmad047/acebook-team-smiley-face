@@ -15,7 +15,7 @@
   <%= @user.email %>
 </p>
 
-<div>
+<p>
   <strong>Your posts:</strong>
   <% @posts.each do |post| %>
     <div class="post">
@@ -23,6 +23,6 @@
       <p class="posted-at">Posted <%= time_ago_in_words(post.created_at) %> ago</p>
     </div>
   <% end %>
-</div>
+</p>
 
-<%= link_to 'Edit', edit_user_path %>
+<%= button_to 'Edit', edit_user_path %>

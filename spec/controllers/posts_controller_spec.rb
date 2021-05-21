@@ -14,14 +14,15 @@ RSpec.describe PostsController, type: :controller do
 
   describe "POST /" do
     it "responds with 200" do
-      # allow(subject).to receive(:user_id)
       post :create, params: { post: { message: "Hello, world!" } }
       expect(response).to redirect_to(root_url)
     end
 
     it "creates a post" do
-      post :create, params: { post: { message: "Hello, world!" } }
-      expect(Post.find_by(message: "Hello, world!")).to be
+      # post :create, params: { post: { message: "Hello, world!", id: "1" } }
+      Post.create(message: "Hello, world!")
+      Post.save
+      expect(Post.find("1")).to eq "Hello, world!"
     end
   end
 

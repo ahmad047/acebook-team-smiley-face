@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-feature "Timeline" do
-  scenario "Can submit posts, view them and see how long ago they were posted" do
+feature "User names appear with their posts" do
+  scenario "User makes a post and sees their name with it" do
     visit '/users/new'
     fill_in 'user[first_name]', with: 'Richard'
     fill_in 'user[last_name]', with: 'McMahon'
@@ -11,7 +11,6 @@ feature "Timeline" do
     click_button 'Create User'
     fill_in 'post[message]', with: 'Hello, world!'
     click_button 'Submit'
-    expect(page).to have_content('Hello, world!')
-    expect(page).to have_content('Posted less than a minute ago')
+    expect(page).to have_content('Posted by Richard')
   end
 end

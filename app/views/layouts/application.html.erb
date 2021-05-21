@@ -26,7 +26,9 @@
     <div class="left-side">
       <ul>
         <% if current_user %>
-          <image id="profile_pic" src="<%= (url_for(@user.avatar)) %>  ">
+          <%= link_to current_user do %>
+            <image id="profile_pic" src="<%= (url_for(@user.avatar)) %>">
+          <% end %>
           <a href="#"><li class="sidebar-li">hi, <%= @user.first_name%> </li></a>
           <a href="#"><li class="sidebar-li">messages</li></a>
           <% else %>

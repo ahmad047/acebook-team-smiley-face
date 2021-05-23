@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe PostsController, type: :controller do
 
-  let(:user) { User.new }
+  let(:user) { User.find_by(first_name: "Bob") }
   before { allow(controller).to receive(:current_user) { user } }
 
   describe "GET /new " do
@@ -19,10 +19,8 @@ RSpec.describe PostsController, type: :controller do
     end
 
     it "creates a post" do
-      # post :create, params: { post: { message: "Hello, world!", id: "1" } }
-      Post.create(message: "Hello, world!")
-      Post.save
-      expect(Post.find("1")).to eq "Hello, world!"
+      post :create, params: { post: { message: "Hello, world!" } }
+      expect(Post.find_by(message: "Hello, world!").message).to eq "Hello, world!"
     end
   end
 

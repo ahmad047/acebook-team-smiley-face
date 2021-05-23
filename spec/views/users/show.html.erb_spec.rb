@@ -13,15 +13,6 @@ RSpec.describe "users/show", type: :view do
     post = Post.create(message: "message", user_id: "1")
     @posts = []
     @posts.push(post)
-
-    Rails.application.routes.draw do
-
-      @user = User.find_by(id: '1')
-
-      get "/user/#{@user.id}/edit", to: 'users#edit'
-    
-    end
-
   end
 
   it "renders attributes in <p>" do

@@ -60,7 +60,6 @@ ActiveRecord::Schema.define(version: 2021_05_21_154312) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["post_id"], name: "index_likes_on_post_id"
     t.index ["user_id"], name: "index_likes_on_user_id"
-
   end
 
   create_table "posts", force: :cascade do |t|

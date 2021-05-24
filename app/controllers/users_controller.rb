@@ -2,7 +2,11 @@ class UsersController < ApplicationController
   before_action :set_user, only: %i[ show edit update ]
   # GET /users or /users.json
   def index
-    @users = User.all
+    if @user && current_user.is_admin
+      @users = User.all
+    else
+      redirect_to root_url
+    end
   end
 
   # GET /users/1 or /users/1.json

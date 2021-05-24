@@ -32,6 +32,8 @@
         <% if post.comments %>
           <strong>Comments</strong>
           <% post.comments.each do |comment| %>
+
+
             <p><%= comment.user.first_name %>: <%= comment.content %></p>
               <% if comment.user == current_user %>
                 <%= button_to "delete comment", post_comment_path(post, comment), :method => "delete" %>
@@ -39,7 +41,10 @@
           <% end %>
         <% end %>
       <%= form_with model: [post, post.comments.new] do |f| %>
+      <br />
+      <br />
         <%= f.text_field :content, placeholder: 'Add a comment...' %>
+        <%= f.submit "add comment" %>
       <% end %>
   </div>
     <% end %>

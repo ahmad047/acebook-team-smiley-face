@@ -2,13 +2,17 @@ class CommentsController < ApplicationController
   before_action :set_post
 
 def create
-  @comment = @post.comments.build(comment_params)
-  @comment.user_id = current_user.id
-
-  if @comment.save
-    redirect_to root_path
+  if params[:comment][:content].length == 0
+    redirect_to root_url, notice: "comment must not be empty"
   else
-    render root_path
+    @comment = @post.comments.build(comment_params)
+    @comment.user_id = current_user.id
+
+    if @comment.save
+      redirect_to root_path
+    else
+      redirect_to root_path, notice: "failed to save"
+    end
   end
 end
 

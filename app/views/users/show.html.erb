@@ -20,6 +20,9 @@
     <div class="post">
       <p><%= post.message %></p>
       <p class="posted-at">Posted <%= time_ago_in_words(post.created_at) %> ago</p>
+      <% if post.user == current_user %>
+        <%= button_to "delete post", post, :method => "delete" %>
+      <% end %>
     </div>
   <% end %>
 </p>

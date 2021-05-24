@@ -4,6 +4,10 @@ include SessionsHelper
   def new
   end
 
+  def show
+    render 'new'
+  end
+
   # create session based on login
   def create
     @user = User.find_by(email: params[:email].downcase)

@@ -47,6 +47,10 @@ main {
   font-size: 1.2em;
 }
 
+.post-picture{
+  max-width: 300px;
+}
+
 .posted-at{
   color: var(--posted-at-text);
   font-size: 0.9em;

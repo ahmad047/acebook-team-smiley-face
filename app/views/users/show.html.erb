@@ -23,6 +23,7 @@
       <% if post.user == current_user %>
         <%= button_to "delete post", post, :method => "delete" %>
       <% end %>
+      <p><%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
     </div>
   <% end %>
 </p>

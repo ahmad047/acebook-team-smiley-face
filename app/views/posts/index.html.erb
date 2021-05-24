@@ -10,7 +10,7 @@
 <div class="new-post">
 <%= form_with model: @post do |form| %>
   <%= form.text_field :message, :placeholder => "What's on your mind?" %>
-  <br>
+  <br /><br />
   <%= form.file_field :picture %>
   <%= form.submit "Submit" %>
 <% end %>
@@ -18,7 +18,7 @@
   </div>
     <% @posts.each do |post| %>
       <div class="post">
-      <strong><%= post.message %></strong>
+      <strong><%= post.message %></strong> <br />
       <% if post.picture.attached? %>
         <%= image_tag(url_for(post.picture), class: "post-picture") %>
       <% end %>
@@ -32,8 +32,6 @@
         <% if post.comments %>
           <strong>Comments</strong>
           <% post.comments.each do |comment| %>
-
-
             <p><%= comment.user.first_name %>: <%= comment.content %></p>
               <% if comment.user == current_user %>
                 <%= button_to "delete comment", post_comment_path(post, comment), :method => "delete" %>

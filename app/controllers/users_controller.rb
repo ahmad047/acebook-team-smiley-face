@@ -13,6 +13,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @posts = @user.posts.all.order('created_at DESC')
+    redirect_to root_url
   end
 
   # GET /users/new

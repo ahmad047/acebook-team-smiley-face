@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: %i[ show edit update ]
   # GET /users or /users.json
   def index
-    if @user && current_user.is_admin
+    if current_user.is_admin
       @users = User.all
     else
       redirect_to root_url
@@ -13,7 +13,6 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @posts = @user.posts.all.order('created_at DESC')
-    redirect_to root_url
   end
 
   # GET /users/new

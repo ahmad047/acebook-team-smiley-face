@@ -16,8 +16,7 @@ def destroy
   @comment = @post.comments.find(params[:id])
 
   @comment.destroy
-  flash[:success] = "Comment deleted :("
-  redirect_to root_path
+  redirect_to root_url, notice: "Comment deleted :("
 end
 
 private

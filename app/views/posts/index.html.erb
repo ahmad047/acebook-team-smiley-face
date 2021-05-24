@@ -6,13 +6,6 @@
 
 <% else %>
 
-<% flash.each do |type, msg| %>
-  <div>
-    <%= msg %>
-  </div>
-<% end %>
-
-
 
 <div class="new-post">
 <%= form_with model: @post do |form| %>

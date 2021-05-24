@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.feature "Timeline", type: :feature do 
   scenario "Posts are posted in reverse chronological order" do
+    # put log in stuff into background do statement
     visit "/posts"
     visit '/login'
     fill_in 'Email', with: 'bobross@mail.com'

@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :sessions
 
   resources :posts do
+    resources :likes
     resources :comments
   end
 end

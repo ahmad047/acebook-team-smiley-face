@@ -78,8 +78,16 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
+# production:
+#   <<: *default
+#   database: pgapp_production
+#   username: pgapp
+#   password: <%= ENV['PGAPP_DATABASE_PASSWORD'] %>
+
 production:
-  <<: *default
+  adapter: postgresql
+  encoding: unicode
   database: pgapp_production
   username: pgapp
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   password: <%= ENV['PGAPP_DATABASE_PASSWORD'] %>

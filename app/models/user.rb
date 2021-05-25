@@ -5,4 +5,5 @@ class User < ApplicationRecord
   validates :email, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
   has_one_attached :avatar
   has_many :likes, dependent: :destroy
+  has_friendship
 end

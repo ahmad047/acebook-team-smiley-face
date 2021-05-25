@@ -55,6 +55,16 @@ class UsersController < ApplicationController
     end
   end
 
+  def add_friend
+    @user = User.find_by(params[:id])
+    current_user.friend_request(@user)
+    if current_user.friend_request(@user)
+      redirect_to users_path, notice: "Friend request successfully sent."
+    else
+      redirect_to users_path, notice: "There was an error sending the friend request"
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user

@@ -19,10 +19,11 @@
       <%= link_to "View my profile", current_user %>
       </li>
       <li class="nav-li"  style="float:right"><a href="/logout" > Log Out </a></li>
+      <li class="nav-li username" style="float:right"><%= "Logged in as: #{current_user.first_name}"%></li>
       <% else %>
       <li class="nav-li"  style="float:right"><a href="/login" > Log In </a></li>
     <% end %>
-    <li class="nav-li username" style="float:right"><%= "Logged in as: #{current_user.first_name}" : '' %></li>
+
   </ul>
   </header>
   <body>

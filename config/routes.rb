@@ -10,7 +10,10 @@ Rails.application.routes.draw do
 
   get '/logout',to: 'sessions#destroy'
  
-  resources :users
+  resources :users do
+    get :add_friend
+  end
+  
   resources :sessions
 
   resources :posts do

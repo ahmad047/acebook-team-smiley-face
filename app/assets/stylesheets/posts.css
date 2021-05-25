@@ -2,7 +2,7 @@
 :root{
   --main-bg-color: lavender;
   --header-bg-colour: paleturquoise;
-  --left-side-bg-color: lightpink;
+  --left-side-bg-color: #ffc8dd;
   --post-bg-color: white;
   --post-text: black;
   --posted-at-text: grey;
@@ -57,9 +57,17 @@ main {
 }
 
 .new-post {
-  grid-column: 2 / 3;
+  /* grid-column: 2 / 3; */
   align-self: center;
-  margin: 2em 0 1em 0.5em;
+  /* margin: 2em 0 1em 0.5em; */
+
+  background-color: var(--post-bg-color);
+  border-radius: 20px;
+  margin: 1em 2em;
+  padding: 2em;
+  align-items: stretch;
+  min-width: 400px;
+  font-size: 1.2em;
 }
 
 .header {
@@ -70,7 +78,7 @@ main {
   padding-top: 2em;
   background-color: var(--left-side-bg-color);
   grid-column: 1 / 2;
-  border-right: 2px solid black;
+  border-right: 1px solid black;
 }
 
 .right-side {
@@ -101,7 +109,7 @@ footer {
   background-color: paleturquoise;
 }
 
-.nav-li { 
+.nav-li {
   float: left;
 }
 
@@ -110,7 +118,7 @@ footer {
   color: white;
   text-decoration: none;
   padding: 1.4em 1.6em;
-} 
+}
 
 /* .nav-li input{
   margin: 1.4em 1em 1.4em 0;

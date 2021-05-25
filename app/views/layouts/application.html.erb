@@ -6,8 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <%= stylesheet_link_tag "posts.css" %>
 </head>
-<p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
+      <p class="notice"><%= notice %></p>
+
+      <p class="alert"><%= alert %></p>
+
   <div class="wrapper">
   <header class="header">
   <ul class="nav-ul">
@@ -20,7 +22,7 @@
       <% else %>
       <li class="nav-li"  style="float:right"><a href="/login" > Log In </a></li>
     <% end %>
-    <li class="nav-li username" style="float:right"><%= @user ? "#{@user.first_name}" : '' %></li>
+    <li class="nav-li username" style="float:right"><%= @user ? "Logged in as: #{@user.first_name}" : '' %></li>
   </ul>
   </header>
   <body>

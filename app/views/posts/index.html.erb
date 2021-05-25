@@ -27,7 +27,9 @@
         <% if post.user == current_user %>
           <%= button_to "delete post", post, :method => "delete" %>
         <% end %>
+
         <%= button_to 'Like', post_likes_path(post), :method => "post" %>
+        <%= button_to "NEW LIKE", post_likes_path(post), method: :post, params: { :react_type => 'heart' } %>
         <p><%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
         <!-- REACTS HERE -->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -40,7 +42,9 @@
                   reacts
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="#"> ◉_◉ </a>
+                <%= button_to "Create", post_likes_path(post)%>
+                  <input id="test", value="◉_◉", type="submit">
+                
                   <a class="dropdown-item" href="#"> (◕‿◕✿) </a>
                 </div>
               </li>

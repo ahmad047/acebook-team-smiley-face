@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :chatrooms
+  resources :rooms
   root "posts#index"
 
   get '/login', to: 'sessions#new'

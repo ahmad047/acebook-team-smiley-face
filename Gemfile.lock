@@ -162,6 +162,7 @@ GEM
     rb-fsevent (0.10.4)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
+    redis (3.3.5)
     rspec (3.10.0)
       rspec-core (~> 3.10.0)
       rspec-expectations (~> 3.10.0)
@@ -238,6 +239,7 @@ DEPENDENCIES
   pg
   puma (~> 3.12.6)
   rails (~> 6.1)
+  redis (~> 3.0)
   rspec-rails (~> 4.0)
   sass-rails (~> 6.0)
   selenium-webdriver

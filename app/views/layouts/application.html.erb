@@ -14,7 +14,7 @@
   <header class="header">
   <ul class="nav-ul">
     <li class="nav-li"><a href="/">BookFace</a></li>
-    <% if @user %>
+    <% if logged_in? %>
       <li class="nav-li">
       <%= link_to "View my profile", current_user %>
       </li>
@@ -22,20 +22,20 @@
       <% else %>
       <li class="nav-li"  style="float:right"><a href="/login" > Log In </a></li>
     <% end %>
-    <li class="nav-li username" style="float:right"><%= @user ? "Logged in as: #{@user.first_name}" : '' %></li>
+    <li class="nav-li username" style="float:right"><%= "Logged in as: #{current_user.first_name}" : '' %></li>
   </ul>
   </header>
   <body>
     <div class="left-side">
       <ul>
-        <% if current_user %>
+        <% if logged_in? %>
           <% if current_user.avatar.attached? %>
-            <%= image_tag(url_for(@user.avatar), class: "profile_pic") %>
-            <a href="#"><li class="sidebar-li">Hi, <%= @user.first_name%> </li></a>
+            <%= image_tag(url_for(current_user.avatar), class: "profile_pic") %>
+            <a href="#"><li class="sidebar-li">Hi, <%= current_user.first_name%> </li></a>
             <a href="#"><li class="sidebar-li">> Inbox</li></a>
           <% else %>
             <%= image_tag("profile_photo.png", class: "profile_pic")%>
-            <a href="#"><li class="sidebar-li">Hi, <%= @user.first_name%> </li></a>
+            <a href="#"><li class="sidebar-li">Hi, <%= current_user.first_name%> </li></a>
             <a href="#"><li class="sidebar-li">> Inbox</li></a>
           <% end %>
         <% end %>

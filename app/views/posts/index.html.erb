@@ -23,7 +23,7 @@
         <%= image_tag(url_for(post.picture), class: "post-picture") %>
       <% end %>
       <p class="posted-at">Posted <%= time_ago_in_words(post.created_at) %> ago</p>
-      <p class="posted-by">Posted by <%= post.user.first_name %></p>
+      <p class="posted-by">Posted by <%= link_to "#{post.user.first_name}", user_path(post.user) %></p>
         <% if post.user == current_user %>
           <%= button_to "delete post", post, :method => "delete" %>
         <% end %>

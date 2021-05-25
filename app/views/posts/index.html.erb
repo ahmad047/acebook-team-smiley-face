@@ -27,9 +27,6 @@
         <% if post.user == current_user %>
           <%= button_to "delete post", post, :method => "delete" %>
         <% end %>
-
-        <%= button_to 'Like', post_likes_path(post), :method => "post" %>
-        <%= button_to "NEW LIKE", post_likes_path(post), method: :post, params: { :react_type => 'heart' } %>
         <p><%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
         <!-- REACTS HERE -->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -42,10 +39,9 @@
                   reacts
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <%= button_to "Create", post_likes_path(post)%>
-                  <input id="test", value="◉_◉", type="submit">
-                
-                  <a class="dropdown-item" href="#"> (◕‿◕✿) </a>
+                <%= button_to "like", post_likes_path(post), method: :post, params: { :react_type => 'like' } %>
+                <%= button_to "heart", post_likes_path(post), method: :post, params: { :react_type => 'heart' } %>
+                <%= button_to "fire", post_likes_path(post), method: :post, params: { :react_type => 'fire' } %>
                 </div>
               </li>
             </ul>
@@ -56,7 +52,7 @@
 
         <% # COMMENTS SECTION HERE %>
         <% if post.comments %>
-          <strong>Comments</strong>
+          <strong>comments:</strong>
           <% post.comments.each do |comment| %>
             <p><%= comment.user.first_name %>: <%= comment.content %></p>
               <% if comment.user == current_user %>

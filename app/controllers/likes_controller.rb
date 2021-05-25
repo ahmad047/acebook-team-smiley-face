@@ -1,20 +1,18 @@
 class LikesController < ApplicationController
-    before_action :find_post  
+    before_action :find_post
     before_action :find_like, only: [:destroy]
 
-    
     def create
-        
         if already_liked?
             flash[:notice] = "You can't like more than once"
           else
-            @post.likes.create(user_id: current_user.id, react_type: "Heart")
+            @post.likes.create(user_id: current_user.id, react_type: params[:react_type])
           end
         redirect_to root_url(@post)
-     end  
-  
-     private  
-    
+     end
+
+     private
+
     def find_post
         @post = Post.find(params[:post_id])
     end
@@ -35,7 +33,7 @@ class LikesController < ApplicationController
           @like.destroy
         end
         redirect_to post_path(@post)
-        
+
     end
 
     # def post_params

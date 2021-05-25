@@ -5,6 +5,11 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
+  def friend_requests
+    @user = User.find_by(params[:id])
+    @requests = @user.requested_friends
+  end
+
   # GET /users/1 or /users/1.json
   def show
     @user = User.find(params[:id])
@@ -21,7 +26,6 @@ class UsersController < ApplicationController
   end
 
   # POST /users or /users.json
-
   def create
     @user = User.new(user_params)
     if @user.save
@@ -58,11 +62,7 @@ class UsersController < ApplicationController
   def add_friend
     @user = User.find_by(params[:id])
     current_user.friend_request(@user)
-    if current_user.friend_request(@user)
-      redirect_to users_path, notice: "Friend request successfully sent."
-    else
-      redirect_to users_path, notice: "There was an error sending the friend request"
-    end
+    redirect_to root_url, notice: "Friend request successfully sent."
   end
 
   private

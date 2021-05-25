@@ -12,6 +12,7 @@ Rails.application.routes.draw do
  
   resources :users
   resources :sessions
+  resources :messages
 
   resources :posts do
     resources :likes

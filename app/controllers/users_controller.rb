@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: %i[ show edit update ]
+  before_action :set_user, only: %i[ edit update ]
   # GET /users or /users.json
   def index
     @users = User.all
@@ -9,6 +9,10 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @posts = @user.posts.all.order('created_at DESC')
+    @sender = User.find(params[:id])
+    @receiver = User.find(params[:receiver_id])
+    @messages = Message.where(sender_id: @sender.id, receiver_id: @receiver.id).or(Message.where(sender_id: @receiver.id, receiver_id: @sender.id))
+    @chat_id = [@sender.id, @receiver.id].sort.join("") #generates a unique identifier for a pair of user 
   end
 
   # GET /users/new

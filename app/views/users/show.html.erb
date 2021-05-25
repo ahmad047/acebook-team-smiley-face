@@ -31,13 +31,13 @@
 <%= link_to 'Edit', edit_user_path(@user) %>
 
 <div>
-    <h2><%=@sender.name %> contacting <%=@receiver.name%></h2>
+    <h2><%=@sender.first_name %> contacting <%=@receiver.first_name%></h2>
     <div id="messages">
         <% @messages.each do |message| %>
-            <p><%= message.sender.name %>: <%= message.text %></p>
+            <p><%= message.sender.first_name %>: <%= message.text %></p>
         <% end %>
     </div>
-    
+      
     <%= form_tag messages_path  do %>
         <div>
             <%= text_field_tag :message, nil ,  placeholder: 'Type message here...', class: 'form-control' %>

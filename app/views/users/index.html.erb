@@ -1,7 +1,7 @@
 <div>
 <h1>Contacts</h1>
 <div>
-    <%= form_for :users, :url => "/users/show",  :html => { :method => 'GET' } do |f| %>
+    <%= form_for :users, :url => current_user,  :html => { :method => 'GET' } do |f| %>
         I am: <%= f.collection_select :ids, @users, :id, :first_name %> <br>
         <%= f.label "Who do you want to chat with?" %> <br>
         

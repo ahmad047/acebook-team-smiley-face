@@ -10,4 +10,5 @@ users = User.create({
   first_name:  "Bob",
   last_name: "Ross",
   email: "bobross@mail.com",
-  password:"password123"})
+  password:"password123",
+  is_admin: "TRUE"})

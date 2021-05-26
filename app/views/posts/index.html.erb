@@ -11,11 +11,14 @@
 <%= form_with model: @post do |form| %>
   <%= form.text_field :message, :placeholder => "What's on your mind?" %>
   <br /><br />
-  <%= form.file_field :picture %>
+  
+  <%= form.label "picture" %>
+    <%= form.file_field :picture, onchange:"readURL(this);" %>
+    <img style="display: none" id="img_prev" src="#"/>
   <%= form.submit "Submit" %>
 <% end %>
-
   </div>
+
     <% @posts.each do |post| %>
       <div class="post">
       <strong><%= post.message %></strong> <br />

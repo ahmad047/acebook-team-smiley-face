@@ -13,3 +13,9 @@
 //= require rails-ujs
 //= require_tree .
 
+require("@rails/ujs").start()
+require("@rails/ujs").start()
+require("@rrails/activestorage").start()
+require("channels")
+
+import '../stylesheets/application.scss'

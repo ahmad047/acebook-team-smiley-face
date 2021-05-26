@@ -38,7 +38,8 @@
 
   <div class="field">
     <%= form.label "profile_photo" %>
-    <%= form.file_field :avatar %>
+    <%= form.file_field :avatar, onchange:"readURL(this);" %>
+    <img style="display: none" id="img_prev" src="#" />
   </div>
 
   <div class="actions">

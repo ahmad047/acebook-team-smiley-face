@@ -12,6 +12,7 @@ class UsersController < ApplicationController
 
   # GET /users/1 or /users/1.json
   def show
+    @friends = @user.friends
     @user = User.find(params[:id])
     @posts = @user.posts.all.order('created_at DESC')
   end
@@ -64,6 +65,16 @@ class UsersController < ApplicationController
     current_user.friend_request(@user)
     redirect_to root_url, notice: "Friend request successfully sent."
   end
+
+  def accept_friend
+    @user = current_user
+    friend = User.find_by(params[:id])
+    @user.accept_request(friend)
+    p "HEEEEEERRE"
+    p friend.first_name
+    redirect_to root_url, notice: "Friend request accepted."
+  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

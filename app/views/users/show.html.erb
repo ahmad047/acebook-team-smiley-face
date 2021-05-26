@@ -13,7 +13,9 @@
   <%= @user.email %>
 </p>
 
-<p class="posted-by"><%= link_to "Friend Requests", user_friend_requests_path(@user) %></p>
+<% if current_user == @user %>
+  <p class="posted-by"><%= link_to "Friend Requests", user_friend_requests_path(@user) %></p>
+<% end %>
 
 <% if current_user != @user %>
   <%= link_to "Add Friend", user_add_friend_path(@user) %>
@@ -41,3 +43,10 @@
 <% if current_user == @user %>
   <%= link_to 'Edit', edit_user_path(@user) %>
 <% end %>
+
+  <strong>Your Friends:</strong>
+
+ <p><%= @friends.each do |friend| %></p>
+  <p><%= friend.first_name %></p>
+   <% end %>
+  

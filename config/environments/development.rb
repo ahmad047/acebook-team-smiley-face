@@ -8,15 +8,15 @@ Rails.application.configure do
   config.cache_classes = false
   host = 'localhost:3000'
   config.action_mailer.default_url_options = { :host => 'localhost:3000', protocol: 'http' }
-  # config.action_mailer.delivery_method = :smtp
-  # config.action_mailer.smtp_settings = {
-  #   port: 587,
-  #   address: 'smtp.gmail.com',
-  #   user_name: 'bobrossblocks@gmail.com',
-  #   password: 'zjbcpvieoeayeooa',
-  #   authentication: :plain,
-  #   enable_starttls_auto: true
-  # }  
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    port: 587,
+    address: 'smtp.gmail.com',
+    user_name: 'bobrossblocks@gmail.com',
+    password: 'zjbcpvieoeayeooa',
+    authentication: :plain,
+    enable_starttls_auto: true
+  }  
 
   # Do not eager load code on boot.
   config.eager_load = false

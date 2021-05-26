@@ -46,6 +46,8 @@
 
   <strong>Your Friends:</strong>
 
- <p><%= @user.friends %></p>
+ <% @user.friends.each do |friend| %>
+ <p><%= friend.first_name %></p>
+ <% end %>
  
   

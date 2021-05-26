@@ -6,8 +6,7 @@ class UsersController < ApplicationController
   end
 
   def friend_requests
-    @user = User.find_by(params[:id])
-    @requests = @user.requested_friends
+    @requests = current_user.requested_friends
   end
 
   # GET /users/1 or /users/1.json
@@ -69,12 +68,8 @@ class UsersController < ApplicationController
   def accept_friend
     @user = current_user
     friend = User.find_by(params[:id])
-    
+    p friend
     @user.accept_request(friend)
-    p "hello"
-    p "HEEEEEERRE"
-    p friend.first_name
-    p @user.friends
     redirect_to root_url, notice: "Friend request accepted."
   end
 

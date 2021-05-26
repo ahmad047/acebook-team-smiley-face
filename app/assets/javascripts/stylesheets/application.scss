@@ -1,8 +1,9 @@
 .chat-room {
     height: 100vh;
     overflow-y: hidden;
-    .chat-box {
-        position: absolute;
-        bottom: 0;
-    }
+
+.chat-box {
+    position: absolute;
+    bottom: 0;
+}
 }

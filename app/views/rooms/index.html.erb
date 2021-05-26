@@ -19,7 +19,10 @@
     <div class="col-9">
       <% if @room.present? %>
         <div class="chat-room">
-          <p><%= @room.name %></p>
+          <nav class="navbar navbar-light bg-light navbar-fixed mb-4 "> 
+            <span class="navbar-brand" href="#"><%= @room.name %> </span>
+          </nav>
+      
           <% @room.room_messages.each do |message| %>
           <p><%= message.content %> - <%= message.user.first_name %></p>
           <% end %>

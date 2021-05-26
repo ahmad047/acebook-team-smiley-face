@@ -23,6 +23,8 @@ class RoomMessagesController < ApplicationController
   def create
     @room_message = RoomMessage.new(room_message_params)
 
+    @room_message.user = current_user
+
     respond_to do |format|
       if @room_message.save
         format.html { redirect_to @room_message, notice: "Room message was successfully created." }

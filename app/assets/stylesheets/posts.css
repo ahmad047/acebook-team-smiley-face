@@ -66,9 +66,23 @@ main {
     display: inline-block;
 }
 
+.emoji_horizontal{
+  transition: transform .2s;
+}
+
+.emoji_horizontal:hover {
+  transform: scale(1.7);
+  cursor: pointer;
+ }
+
 .reacts {
     display: flex;
    flex-flow: row wrap;
+   transition: transform .2s;
+}
+
+.emoji-fire{
+  display: inline-block;
 }
 
 .new-post {

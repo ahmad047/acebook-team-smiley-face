@@ -7,10 +7,10 @@ RSpec.describe "users/show", type: :view do
       last_name: "Last Name",
       email: "Email@email.com",
       password: "123456",
-      id: "1"
+      id: "98765"
     ))
 
-    post = Post.create(message: "message", user_id: "1")
+    post = Post.create(message: "message", user_id: "98765")
     @posts = []
     @posts.push(post)
   end

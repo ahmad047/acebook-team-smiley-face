@@ -56,6 +56,21 @@ main {
   font-size: 0.9em;
 }
 
+
+.emoji-button {
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.reacts {
+    display: flex;
+   flex-flow: row wrap;
+}
+
 .new-post {
   /* grid-column: 2 / 3; */
   align-self: center;

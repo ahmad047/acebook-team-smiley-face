@@ -29,23 +29,11 @@
         <% end %>
         <p><%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
         <!-- REACTS DROPDOWN HERE -->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-          <div class="navbar collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-                  reacts
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <%= button_to "like", post_likes_path(post), method: :post, params: { :react_type => 'like' }%>
-                <%= button_to "heart", post_likes_path(post), method: :post, params: { :react_type => 'heart' } %>
-                <%= button_to "fire", post_likes_path(post), method: :post, params: { :react_type => 'fire' } %>
-                </div>
-              </li>
-            </ul>
+          <div class="reacts">
+            <span class="emoji_horizontal"><%= button_to "👍", post_likes_path(post), method: :post, class: "emoji-button", params: { :react_type => 'like' }%></span>
+            <span class="emoji_horizontal"><%= button_to "💖", post_likes_path(post), method: :post, class: "emoji-button", params: { :react_type => 'heart' } %></span>
+            <span class="emoji_horizontal"><%= button_to "🔥", post_likes_path(post), method: :post, class: "emoji-button", params: { :react_type => 'fire' } %></span>
           </div>
-        </nav>
         <% # COMMENTS SECTION HERE %>
         <% if post.comments %>
           <strong>comments:</strong>

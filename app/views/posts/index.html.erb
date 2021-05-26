@@ -24,13 +24,14 @@
       <% end %>
       <p class="posted-at">Posted <%= time_ago_in_words(post.created_at) %> ago</p>
       <p class="posted-by">Posted by <%= post.user.first_name %></p>
+      <% # EXTRACT THIS LOGIC INTO A HELPER? %>
         <% if post.user == current_user %>
           <%= button_to "delete post", post, :method => "delete" %>
         <% end %>
           <% fire_counter = 0 %>
           <% thumbs_up_counter = 0 %>
           <% heart_counter = 0 %>
-          <% post.likes.each do |like| %> 
+          <% post.likes.each do |like| %>
             <%if like.react_type == "fire"%>
               <% fire_counter += 1 %>
             <%elsif like.react_type == "heart"%>
@@ -39,16 +40,12 @@
               <% thumbs_up_counter += 1 %>
             <% end %>
           <% end %>
-          <% if post.likes.count >= 1 %>
-            <p class="likes-counter">👍<small> x<%= thumbs_up_counter %></small> </p>
-            <p class="likes-counter">🔥<small> x<%= fire_counter %></small> </p>
-            <p class="likes-counter">💖<small> x<%= heart_counter %></small> </p>
-          <% end %>
+        <% # EXTRACT THE ABOVE LOGIC INTO A HELPER? %>
         <!-- REACTS DROPDOWN HERE -->
           <div class="reacts">
-            <span class="emoji_horizontal"><%= button_to "👍", post_likes_path(post), method: :post, class: "emoji-button", params: { :react_type => 'like' }%></span>
-            <span class="emoji_horizontal"><%= button_to "💖", post_likes_path(post), method: :post, class: "emoji-button", params: { :react_type => 'heart' } %></span>
-            <span class="emoji_horizontal"><%= button_to "🔥", post_likes_path(post), method: :post, class: "emoji-button", params: { :react_type => 'fire' } %></span>
+            <span class="emoji_horizontal"><%= button_to "👍 x#{thumbs_up_counter}", post_likes_path(post), method: :post, class: "emoji-button", params: { :react_type => 'like' }%></span>
+            <span class="emoji_horizontal"><%= button_to "💖 x#{heart_counter}", post_likes_path(post), method: :post, class: "emoji-button", params: { :react_type => 'heart' } %></span>
+            <span class="emoji_horizontal"><%= button_to "🔥 x#{fire_counter}", post_likes_path(post), method: :post, class: "emoji-button", params: { :react_type => 'fire' } %></span>
           </div>
         <% # COMMENTS SECTION HERE %>
         <% if post.comments %>

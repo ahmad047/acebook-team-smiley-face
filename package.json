@@ -1,5 +1,8 @@
 {
   "name": "acebook",
   "private": true,
-  "dependencies": {}
+  "dependencies": {},
+  "devDependencies": {
+    "webpack-dev-server": "^3.11.2"
+  }
 }

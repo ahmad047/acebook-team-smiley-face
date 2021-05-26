@@ -24,8 +24,8 @@
         <%= image_tag(url_for(post.picture), class: "post-picture") %>
         <br>
       <% end %>
-      <td><%= link_to 'Edit', edit_post_path(post) %></td>
       <% if post.user == current_user %>
+      <td><%= link_to 'Edit', edit_post_path(post) %></td>
         <%= button_to "delete post", post, :method => "delete" %>
       <% end %>
       <p><%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
@@ -34,4 +34,6 @@
   <% end %>
 </p>
 
-<%= link_to 'Edit', edit_user_path(@user) %>
+<% if current_user == @user %>
+  <%= link_to 'Edit', edit_user_path(@user) %>
+<% end %>

@@ -28,9 +28,6 @@
       <p class="posted-at">Posted <%= time_ago_in_words(post.created_at) %> ago</p>
       <p class="posted-by">Posted by <%= post.user.first_name %></p>
       <% # EXTRACT THIS LOGIC INTO A HELPER? %>
-        <% if post.user == current_user %>
-          <%= button_to "delete post", post, :method => "delete" %>
-        <% end %>
           <% fire_counter = 0 %>
           <% thumbs_up_counter = 0 %>
           <% heart_counter = 0 %>

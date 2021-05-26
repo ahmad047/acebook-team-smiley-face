@@ -1,8 +1,11 @@
 class PostsController < ApplicationController
 
   def create
-    if params[:post][:message].length == 0
+    if params[:post][:message].length == 0 && params[:post][:picture].nil?
       redirect_to root_url, notice: "post must not be empty"
+    elsif !params[:post][:picture].nil?
+      @post = Post.create(post_params.merge(user_id: current_user.id))
+      redirect_to root_url
     else
       @post = Post.create(post_params.merge(user_id: current_user.id))
       redirect_to root_url

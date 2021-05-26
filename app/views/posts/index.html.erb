@@ -6,38 +6,53 @@
 
 <% else %>
 
-<% flash.each do |type, msg| %>
-  <div>
-    <%= msg %>
-  </div>
-<% end %>
-
-<p>Logged in as: <%= @user.email %></p>
 
 <div class="new-post">
 <%= form_with model: @post do |form| %>
   <%= form.text_field :message, :placeholder => "What's on your mind?" %>
-  <br>
-  <%= form.file_field :picture %>
+  <br /><br />
+  
+  <%= form.label "picture" %>
+    <%= form.file_field :picture, onchange:"readURL(this);" %>
+    <img style="display: none" id="img_prev" src="#"/>
   <%= form.submit "Submit" %>
 <% end %>
-
   </div>
+
     <% @posts.each do |post| %>
       <div class="post">
-      <strong><%= post.message %></strong>
+      <strong><%= post.message %></strong> <br />
       <% if post.picture.attached? %>
         <%= image_tag(url_for(post.picture), class: "post-picture") %>
       <% end %>
       <p class="posted-at">Posted <%= time_ago_in_words(post.created_at) %> ago</p>
       <p class="posted-by">Posted by <%= post.user.first_name %></p>
+      <% # EXTRACT THIS LOGIC INTO A HELPER? %>
         <% if post.user == current_user %>
           <%= button_to "delete post", post, :method => "delete" %>
         <% end %>
-        <%= button_to 'Like', post_likes_path(post), :method => "post" %>
-        <p><%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
+          <% fire_counter = 0 %>
+          <% thumbs_up_counter = 0 %>
+          <% heart_counter = 0 %>
+          <% post.likes.each do |like| %>
+            <%if like.react_type == "fire"%>
+              <% fire_counter += 1 %>
+            <%elsif like.react_type == "heart"%>
+              <% heart_counter += 1 %>
+            <%elsif like.react_type == "like"%>
+              <% thumbs_up_counter += 1 %>
+            <% end %>
+          <% end %>
+        <% # EXTRACT THE ABOVE LOGIC INTO A HELPER? %>
+        <!-- REACTS DROPDOWN HERE -->
+          <div class="reacts">
+            <span class="emoji_horizontal"><%= button_to "👍 x#{thumbs_up_counter}", post_likes_path(post), method: :post, class: "emoji-button", params: { :react_type => 'like' }%></span>
+            <span class="emoji_horizontal"><%= button_to "💖 x#{heart_counter}", post_likes_path(post), method: :post, class: "emoji-button", params: { :react_type => 'heart' } %></span>
+            <span class="emoji_horizontal"><%= button_to "🔥 x#{fire_counter}", post_likes_path(post), method: :post, class: "emoji-button", params: { :react_type => 'fire' } %></span>
+          </div>
+        <% # COMMENTS SECTION HERE %>
         <% if post.comments %>
-          <strong>Comments</strong>
+          <strong>comments:</strong>
           <% post.comments.each do |comment| %>
             <p><%= comment.user.first_name %>: <%= comment.content %></p>
               <% if comment.user == current_user %>
@@ -46,9 +61,13 @@
           <% end %>
         <% end %>
       <%= form_with model: [post, post.comments.new] do |f| %>
+      <br />
         <%= f.text_field :content, placeholder: 'Add a comment...' %>
+        <%= f.submit "add comment" %>
       <% end %>
   </div>
+
+
     <% end %>
 
 <% end %>

@@ -18,4 +18,6 @@ require("@rails/ujs").start()
 require("@rrails/activestorage").start()
 require("channels")
 
-import '../stylesheets/application.scss'
+import "./stylesheets/application.scss";
+import "bootstrap";
+import "./application.scss";

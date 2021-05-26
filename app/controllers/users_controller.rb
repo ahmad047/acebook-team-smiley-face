@@ -69,9 +69,12 @@ class UsersController < ApplicationController
   def accept_friend
     @user = current_user
     friend = User.find_by(params[:id])
+    
     @user.accept_request(friend)
+    p "hello"
     p "HEEEEEERRE"
     p friend.first_name
+    p @user.friends
     redirect_to root_url, notice: "Friend request accepted."
   end
 

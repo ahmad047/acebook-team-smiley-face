@@ -25,8 +25,9 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      log_in(@user)
-      redirect_to root_url, notice: "Signed up successfully"
+      UserMailer.registration_confirmation(@user).deliver
+      # log_in(@user)
+      redirect_to root_url, notice: "Please confirm your email address"
     else
       render :new
     end
@@ -52,6 +53,19 @@ class UsersController < ApplicationController
     respond_to do |format|
       format.html { redirect_to users_url, notice: "User was successfully annihilated." }
       format.json { head :no_content }
+    end
+  end
+
+  def confirm_email
+    @user = User.find_by_confirm_token(params[:id])
+    if @user
+      @user.email_activate
+      flash[:success] = "Your email has been confirmed.
+      Please sign in to continue."
+      redirect_to login_url
+    else
+      flash[:error] = "Sorry. User does not exist"
+      redirect_to root_url
     end
   end
 

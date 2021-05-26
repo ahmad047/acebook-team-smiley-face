@@ -23,18 +23,9 @@ class RoomMessagesController < ApplicationController
   # POST /room_messages or /room_messages.json
   def create
     @room_message = RoomMessage.new(room_message_params)
-
     @room_message.user = current_user
-
-    respond_to do |format|
-      if @room_message.save
-          format.html { redirect_to @room_message, notice: "Room message was successfully created." }
-          format.json { render :show, status: :created, location: @room_message }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @room_message.errors, status: :unprocessable_entity }
-      end
-    end
+    @room_message.save
+    redirect_to request.referrer
   end
 
   # PATCH/PUT /room_messages/1 or /room_messages/1.json

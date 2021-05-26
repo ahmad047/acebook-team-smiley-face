@@ -47,7 +47,7 @@
   <strong>Your Friends:</strong>
 
  <% @user.friends.each do |friend| %>
- <p><%= friend.first_name %></p>
+ <p><%= link_to "#{friend.first_name} #{friend.last_name}", friend %></p>
  <% end %>
  
   

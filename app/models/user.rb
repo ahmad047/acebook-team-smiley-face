@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  validates_uniqueness_of :username
+  validates_uniqueness_of :first_name
   has_many :comments
   has_many :posts
   has_secure_password

@@ -20,7 +20,8 @@
         <div class="chat-room">
           <p><%= @room.name %></p>
           <div class="chat-box">
-           <%= render 'room_messages/form', room_message: RoomMessage.new %>
+           <%= render 'room_messages/form', room_message: RoomMessage.new,
+           room: @room %>
            
         </div>
       <% end %> 

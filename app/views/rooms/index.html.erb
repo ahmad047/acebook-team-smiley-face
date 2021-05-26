@@ -2,7 +2,8 @@
 
 <div class="container-fluid">
   <div class="row">
-    <div class="col-3">      
+    <div class="col-3"> 
+    <p>Hello, <%= current_user.first_name %></p>     
       <%= render 'form', room: Room.new %>
       <hr>
       <% @rooms.each do |room| %>

@@ -12,6 +12,10 @@ class PostsController < ApplicationController
     end
   end
 
+  def edit
+    @post = Post.find(params[:id])
+  end
+
   def index
     if session[:user_id]
       @user = User.find_by(id: session[:user_id])
@@ -26,6 +30,12 @@ class PostsController < ApplicationController
 
     @post.destroy
     redirect_to root_url, notice: "Post deleted :("
+  end
+
+  def update
+    @post = Post.find(params[:id])
+    @post.update(post_params)
+    redirect_to user_path
   end
 
   private

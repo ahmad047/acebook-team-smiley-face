@@ -18,7 +18,9 @@
       <% end %>
     </div>
     <div class="col-9">
-
+      <% if @room.present? %>
+      <p><%= @room.name %> </p>
+      <% end %> 
     </div>  
   </div>
 </div>

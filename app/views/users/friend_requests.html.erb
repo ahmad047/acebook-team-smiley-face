@@ -2,7 +2,7 @@
 <% @requests.each do |friend| %>
 <p>Requested by:</p>
 <%= friend.first_name %>
-  <% if current_user.avatar.attached? %>
+  <% if friend.avatar.attached? %>
     <%= image_tag(url_for(friend.avatar), class: "profile_pic") %>
   <% end %>
   <%= link_to "Accept", user_accept_request_path(friend) %>

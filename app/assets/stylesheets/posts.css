@@ -81,7 +81,7 @@ main {
    transition: transform .2s;
 }
 
-.emoji-fire{
+.emoji-fire, .likes-counter{
   display: inline-block;
 }
 

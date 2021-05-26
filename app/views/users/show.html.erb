@@ -21,9 +21,6 @@
   <%= link_to "Add Friend", user_add_friend_path(@user) %>
 <% end %>
 
-<% if current_user.friends_with?(@user) %>
-  <h1>This works</h1>
-<% end %>
 
 <% if current_user.friend_request(@user) %><p>works</p><% end %>
 <p>

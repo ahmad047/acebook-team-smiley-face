@@ -13,7 +13,8 @@ Rails.application.routes.draw do
   resources :users do
     get :add_friend
     get :friend_requests
-    get :accept_friend
+    get :accept_request
+    get :decline_request
   end
   
   resources :sessions

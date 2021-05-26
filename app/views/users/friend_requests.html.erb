@@ -5,8 +5,8 @@
   <% if current_user.avatar.attached? %>
     <%= image_tag(url_for(friend.avatar), class: "profile_pic") %>
   <% end %>
-  <%= link_to "Accept", user_accept_friend_path(friend) %>
-  <%= link_to "Decline", user_add_friend_path(friend) %>
+  <%= link_to "Accept", user_accept_request_path(friend) %>
+  <%= link_to "Decline", user_decline_request_path(friend) %>
 <% end %>
 <br>
 <%= link_to 'Back to home', root_url %>

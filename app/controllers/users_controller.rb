@@ -65,12 +65,18 @@ class UsersController < ApplicationController
     redirect_to root_url, notice: "Friend request successfully sent."
   end
 
-  def accept_friend
+  def accept_request
     @user = current_user
     friend = User.find_by(params[:id])
-    p friend
     @user.accept_request(friend)
     redirect_to root_url, notice: "Friend request accepted."
+  end
+
+  def decline_request
+    @user = current_user
+    friend = User.find_by(params[:id])
+    @user.decline_request(friend)
+    redirect_to root_url, notice: "Friend request rejected."
   end
 
 

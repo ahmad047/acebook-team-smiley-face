@@ -1,5 +1,20 @@
 <p id="notice"><%= notice %></p>
 
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-3">
+      <div class="card-body">  
+      
+      <%= render 'form', room: Room.new %>
+      <hr>
+
+    </div>
+    <div class="col-9">
+
+    </div>
+  </div>
+</div>
+
 <h1>Rooms</h1>
 
 <table>

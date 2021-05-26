@@ -8,6 +8,7 @@ class RoomMessagesController < ApplicationController
 
   # GET /room_messages/1 or /room_messages/1.json
   def show
+    @room_messages = RoomMessage.all
   end
 
   # GET /room_messages/new
@@ -27,8 +28,8 @@ class RoomMessagesController < ApplicationController
 
     respond_to do |format|
       if @room_message.save
-        format.html { redirect_to @room_message, notice: "Room message was successfully created." }
-        format.json { render :show, status: :created, location: @room_message }
+          format.html { redirect_to @room_message, notice: "Room message was successfully created." }
+          format.json { render :show, status: :created, location: @room_message }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @room_message.errors, status: :unprocessable_entity }

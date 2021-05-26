@@ -17,9 +17,12 @@
     </div>
     <div class="col-9">
       <% if @room.present? %>
-      <div class="chat-room">
-        <p><%= @room.name %></p>
-      </div>
+        <div class="chat-room">
+          <p><%= @room.name %></p>
+          <div class="chat-box">
+            <%= render 'room_messages/form', message: RoomMessage.new %>
+          </div>
+        </div>
       <% end %> 
     </div>  
   </div>

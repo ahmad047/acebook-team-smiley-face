@@ -48,10 +48,10 @@ body {
     }
   }
   .chat-box {
-    position: absolute;
+    position: sticky;
     bottom: -10px;
     padding: 20px;
-    width: 100%;
+    width: 70%;
     margin-left: -15px;
     background-color: white;
     border-top: 1px solid #eeeeee;

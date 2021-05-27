@@ -48,23 +48,27 @@
       <li class="nav-li"  style="float:right"><a href="/login" > Log In </a></li>
     <% end %>
     <li class="nav-li username" style="float:right"><%= @user ? "Logged in as: #{@user.first_name}" : '' %></li>
+    <li class="nav-li username" ><%= @user ? "Messages" : '' %></li>
+
 
   </ul>
   </header>
   <body>
     <div class="left-side">
       <ul>
+        <div class="profile_pic_container">
         <% if logged_in? %>
           <%  if current_user.avatar.attached? %>
             <%= image_tag(url_for(current_user.avatar), class: "profile_pic") %>
-            <a href="#"><li class="sidebar-li">Hi, <%= current_user.first_name%> </li></a>
-            <a href="#"><li class="sidebar-li"> Inbox</li></a>
+            <a href="#"><li class="sidebar-li">@<%= current_user.first_name%><%= current_user.last_name%> </li></a>
+            <a href="#"><li class="sidebar-li">Messages</li></a>
           <% else %>
             <%= image_tag("profile_photo.png", class: "profile_pic")%>
-            <a href="#"><li class="sidebar-li">Hi, <%= current_user.first_name%> </li></a>
-            <a href="#"><li class="sidebar-li"> Inbox</li></a>
+            <a href="#"><li class="sidebar-li">@<%= current_user.first_name%><%= current_user.last_name%> </li></a>
+            <a href="#"><li class="sidebar-li">Messages</li></a>
           <% end %>
         <% end %>
+      </div>
       </ul>
     </div>
   <main>

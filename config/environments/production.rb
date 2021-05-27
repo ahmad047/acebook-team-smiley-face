@@ -4,7 +4,17 @@ Rails.application.configure do
   config.active_storage.service = :local
   # Code is not reloaded between requests.
   config.cache_classes = true
-
+  host = 'localhost:3000'
+  config.action_mailer.default_url_options = { :host => 'localhost:3000', protocol: 'http' }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    port: 587,
+    address: 'smtp.gmail.com',
+    user_name: 'bobrossblocks@gmail.com',
+    password: 'zjbcpvieoeayeooa',
+    authentication: :plain,
+    enable_starttls_auto: true
+  }  
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers
   # and those relying on copy on write to perform better.

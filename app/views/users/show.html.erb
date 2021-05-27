@@ -1,4 +1,7 @@
 
+<h4>Your details:</h4>
+<div class="user_info">
+
 <p>
   <strong>First name:</strong>
   <%= @user.first_name %>
@@ -20,8 +23,11 @@
 <% end %>
 </p>
 
-<p>
-  <strong>Your posts:</strong>
+</div>
+
+
+<% if @posts.length >= 1 %>
+  <h4>Your posts:</h4>
   <% @posts.each do |post| %>
     <div class="post">
       <p><%= post.message %></p>
@@ -31,11 +37,14 @@
         <br>
       <% end %>
       <% if post.user == current_user %>
-      <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <%= button_to "delete post", post, :method => "delete" %>
+        <%= link_to 'Edit', edit_post_path(post) %>
+        <%= button_to "Delete ", post, :method => "delete" %>
       <% end %>
-      <p><%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
-
-    </div>
+      <br />
+      <% if post.likes.count >= 1 %>
+        <%= post.likes.count %> 👍💖🔥
+      <% end %>
+      </div>
   <% end %>
-</p>
+
+<% end %>

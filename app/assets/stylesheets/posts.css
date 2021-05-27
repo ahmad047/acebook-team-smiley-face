@@ -1,8 +1,8 @@
 /* ----------------- base styles --------------- */
 :root{
-  --main-bg-color: lavender;
-  --header-bg-colour: paleturquoise;
-  --left-side-bg-color: #ffc8dd;
+  --main-bg-color: #ebf2fa;
+  --header-bg-colour: #e2eafc;
+  --left-side-bg-color: #62b6cb;
   --post-bg-color: white;
   --post-text: black;
   --posted-at-text: grey;
@@ -171,4 +171,32 @@ a {
 
 .profile-photo {
   width: 80px;
+}
+
+/* ----------------- user page (move later) --------------- */
+
+.user_info{
+  background-color: white;
+  border-radius: 20px;
+  align-content: stretch;
+  margin: 1em 2em;
+  padding: 2em;
+  align-items: stretch;
+  min-width: 400px;
+  max-width: 800px;
+  font-size: 1.2em;
+}
+
+.your_posts{
+
+  background-color: white;
+  border-radius: 20px;
+  align-content: stretch;
+  margin: 1em 2em;
+  padding: 2em;
+  align-items: stretch;
+  min-width: 400px;
+  max-width: 800px;
+  font-size: 1.2em;
+  .btn{}
 }

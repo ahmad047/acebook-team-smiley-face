@@ -94,6 +94,7 @@ ActiveRecord::Schema.define(version: 2021_05_26_104026) do
     t.string "profile_pic"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "is_admin"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 

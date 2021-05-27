@@ -75,7 +75,7 @@ class UsersController < ApplicationController
 
   def decline_request
     @user = current_user
-    friend = User.find_by(id: params[:id])
+    friend = User.find_by(id: params[:user_id])
     @user.decline_request(friend)
     redirect_to root_url, notice: "Friend request rejected."
   end

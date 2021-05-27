@@ -48,8 +48,8 @@
       <% else %>
       <li class="nav-li"  style="float:right"><a href="/login" > Log In </a></li>
     <% end %>
-    <li class="nav-li username" style="float:right"><%= @user ? "Logged in as: #{@user.first_name}" : '' %></li>
-    <li class="nav-li username" ><%= @user ? "Messages" : '' %></li>
+    <li class="nav-li username" style="float:right"><%= logged_in? ? "Logged in as: #{current_user.first_name}" : '' %></li>
+    <li class="nav-li username" ><%= logged_in? ? "Messages" : '' %></li>
 
   </ul>
   </header>

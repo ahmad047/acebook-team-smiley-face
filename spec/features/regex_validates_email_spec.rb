@@ -10,6 +10,6 @@ feature 'Entering email must be valid email expression' do
     fill_in 'user[password_confirmation]', with: 'password123'
     click_button 'Create User'
     expect(page).to have_content('1 error prohibited this user from being saved:')
-    expect(page).to have_content('Email is invalid')
+    expect(page).to have_content('email')
   end
 end

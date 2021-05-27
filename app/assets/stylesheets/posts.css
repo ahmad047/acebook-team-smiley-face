@@ -7,7 +7,7 @@
   --post-text: black;
   --posted-at-text: grey;
   --button-colour : rgb(62, 165, 165);
-  --button-hover-colour : rgb(103, 182, 182);
+  --button-hover-colour : rgb(64, 125, 125);
 }
 
 
@@ -17,18 +17,31 @@ body {
   padding: 0;
 }
 
+
 .logo_header{
-  height: 45px;
+  height: 40px;
   margin-left: 1em;
 }
 
 .my_button{
   color: white;
   border-radius: 15px;
-  padding: 16px 28px;
+  padding: 10px 25px;
   background-color: rgb(62, 165, 165);
   border: none;
-  transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: background-color 1s ease;
+}
+
+.delete{
+  font-size: 0.8em;
+  border-radius: 5px;
+  background-color: rgb(245, 75, 75);
+  padding: 1px 3px;
+}
+
+.delete:hover{
+  transition: background-color 1s ease;
+  background-color: grey;
 }
 
 .my_button:hover{
@@ -42,7 +55,7 @@ body {
   background-color: rgb(219, 250, 219);
   display: grid;
   height: 100vh;
-  grid-template: auto 1fr auto / minmax(175px, 250px) 1fr minmax(100px, 200px);
+  grid-template: 75px 1fr auto / minmax(175px, 250px) 1fr minmax(100px, 200px);
 }
 
 main {
@@ -56,7 +69,7 @@ main {
   padding-bottom: 2em;
 }
 
-.post{
+.post-wrapper{
   background-color: var(--post-bg-color);
   border-radius: 20px;
   display: flex;
@@ -67,7 +80,25 @@ main {
   /* align-items: stretch; */
   min-width: 700px;
   font-size: 1.2em;
-  box-shadow: 0 8px 6px -10px black;
+  box-shadow: 0 14px 28px hsl(185deg 90% 18% / 31%),
+  0 10px 10px rgb(255 255 255/ 9%);
+}
+
+.post-top{
+  margin-top: -40px;
+  padding: 2em 2em 5em 2em;
+  margin-bottom: 2em;
+  background-color: var(--post-bg-color);
+  width: 700px;
+  border-radius: 20px;
+  height: 100px;
+  position: absolute;
+  overflow-y: hidden;
+}
+
+.post-body{
+  margin-top: 5em;
+  display: block;
 }
 
 
@@ -96,15 +127,37 @@ main {
   transition: transform .2s;
   border-radius: 10px;
   padding: 1.5em 0 0 1em;
+  transition: box-shadow 0.5s ease;
+}
+
+.text-field:hover, .comment-field:hover{
+  box-shadow: 0px 0px 14px 0px rgba(118, 191, 255, 0.8);
+}
+
+.comment-field{
+  width: 100%;
+  transition: transform .2s;
+  border-radius: 10px;
+  padding: 1em;
+  transition: box-shadow 0.5s ease;
+}
+
+.comment-name {
+  display: inline-block;
+  color: grey;
+}
+
+
+.comments{
+  margin-top: 2em;
 }
 
 .upload-image-text{
   margin-bottom: 1em;
+  color: grey;
 }
 
-.text-field:hover{
-  box-shadow: 5px 7px 8px -5px rgba(22, 29, 255, 0.6);
-}
+
 
 .submit-post{
   display: block;
@@ -141,9 +194,10 @@ main {
  }
 
 .reacts {
-    display: flex;
-   flex-flow: row wrap;
-   transition: transform .2s;
+  display: flex;
+  flex-flow: row wrap;
+  margin-bottom: 1.5em;
+  transition: transform .2s;
 }
 
 .emoji-fire, .likes-counter{
@@ -207,7 +261,7 @@ footer {
   float: left;
 }
 
-.nav-li a, .username{
+.nav-li a, .username, .messages{
   display: block;
   color: white;
   text-decoration: none;

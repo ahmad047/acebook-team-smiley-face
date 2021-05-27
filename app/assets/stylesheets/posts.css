@@ -275,3 +275,21 @@ a {
   font-size: 1.2em;
 
 }
+
+label{
+  display: table-cell;
+  text-align: right;
+}
+input {
+  display: table-cell;
+  margin: 0.5em;
+  border-radius: 4px;
+}
+div.field{
+  display:table-row;
+
+}
+div.actions{
+  display:table-row;
+
+}

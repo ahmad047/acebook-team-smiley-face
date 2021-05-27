@@ -13,3 +13,21 @@
  *= require_tree .
  *= require_self
  */
+
+ @import "bootstrap";
+
+ /* ----------------- base styles --------------- */
+:root{
+  --main-bg-color: lavender;
+  --header-bg-colour: paleturquoise;
+  --left-side-bg-color: #ffc8dd;
+  --post-bg-color: white;
+  --post-text: black;
+  --posted-at-text: grey;
+}
+
+ body {
+  background-color: floralwhite;
+  margin: 0;
+  padding: 0;
+ }

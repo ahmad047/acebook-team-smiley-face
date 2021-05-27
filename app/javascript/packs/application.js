@@ -17,9 +17,8 @@ require("@rails/ujs").start()
 require("@rails/activestorage").start()
 require("channels")
 
-import "./stylesheets/application.scss";
+import "./javascript/stylesheets/application.scss";
 import "bootstrap";
-import "./application.scss";
 require('popper.js');
 
 import Rails from "@rails/ujs"

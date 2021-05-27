@@ -1,8 +1,8 @@
 /* ----------------- base styles --------------- */
 :root{
-  --main-bg-color: #ebf2fa;
+  --main-bg-color: #ebf6fa;
   --header-bg-colour: #e2eafc;
-  --left-side-bg-color: #62b6cb;
+  --left-side-bg-color: #73d2de;
   --post-bg-color: white;
   --post-text: black;
   --posted-at-text: grey;
@@ -107,7 +107,7 @@ main {
   padding-top: 2em;
   background-color: var(--left-side-bg-color);
   grid-column: 1 / 2;
-  border-right: 1px solid black;
+  border-right: 1px solid #2a5f66;
 }
 
 .right-side {

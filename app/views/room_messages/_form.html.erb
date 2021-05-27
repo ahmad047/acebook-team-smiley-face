@@ -13,12 +13,10 @@
 
     <%= form.hidden_field :room_id, value: room.id %>
 
-    <div class="field">
-    <%= form.label :content %>
-    <%= form.text_area :content %>
+  <div class="input-group">
+    <%= form.text_field :content, placeholder: "Type your message here...", class: 'form-control' %>
+    <div class="input-group-append">
+      <%= form.submit "Send Message", class: "btn btn-primary" %>
     </div>
- 
-  <div class="actions">
-    <%= form.submit "Send message", class: "btn btn-primary" %>
   </div>
 <% end %>

@@ -9,8 +9,13 @@ class UsersController < ApplicationController
     end
   end
 
+  def friend_requests
+    @requests = current_user.requested_friends
+  end
+
   # GET /users/1 or /users/1.json
   def show
+    @friends = @user.friends
     @user = User.find(params[:id])
     @posts = @user.posts.all.order('created_at DESC')
   end
@@ -25,7 +30,6 @@ class UsersController < ApplicationController
   end
 
   # POST /users or /users.json
-
   def create
     @user = User.new(user_params)
     if @user.save
@@ -60,6 +64,27 @@ class UsersController < ApplicationController
     end
   end
 
+  def add_friend
+    @user = current_user
+    friend = User.find_by(params[:id])
+    @user.friend_request(friend)
+    redirect_to root_url, notice: "Friend request successfully sent."
+  end
+
+  def accept_request
+    @user = current_user
+    friend = User.find_by(id: params[:user_id])
+    @user.accept_request(friend)
+    redirect_to root_url, notice: "Friend request accepted."
+  end
+
+  def decline_request
+    @user = current_user
+    friend = User.find_by(id: params[:user_id])
+    @user.decline_request(friend)
+    redirect_to root_url, notice: "Friend request rejected."
+  end
+
   def confirm_email
     @user = User.find_by_confirm_token(params[:id])
     if @user
@@ -81,8 +106,6 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      #params.require(user_id)
       params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :avatar)
     end
-
 end

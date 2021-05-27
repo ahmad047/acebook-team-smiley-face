@@ -40,7 +40,7 @@
   <ul class="nav-ul">
 
     <li class="nav-li"><a href="/"><%= image_tag("bookface_logo.png", class: "logo_header")%></a></li>
-      <% if @user %>
+      <% if logged_in? %>
         <li class="nav-li">
         <%= link_to "View my profile", current_user %>
         </li>
@@ -48,9 +48,8 @@
       <% else %>
       <li class="nav-li"  style="float:right"><a href="/login" > Log In </a></li>
     <% end %>
-    <li class="nav-li username" style="float:right"><%= @user ? "Logged in as: #{@user.first_name}" : '' %></li>
+    <li class="nav-li username" style="float:right"><%= @user ? "Logged in as: #{current_user.first_name}" : '' %></li>
     <li class="nav-li username" ><%= @user ? "Messages" : '' %></li>
-
 
   </ul>
   </header>
@@ -59,7 +58,7 @@
       <ul>
         <div class="profile_pic_container">
         <% if logged_in? %>
-          <%  if current_user.avatar.attached? %>
+          <% if current_user.avatar.attached? %>
             <%= image_tag(url_for(current_user.avatar), class: "profile_pic") %>
             <a href="#"><li class="sidebar-li">@<%= current_user.first_name%><%= current_user.last_name%> </li></a>
             <a href="#"><li class="sidebar-li">Messages</li></a>

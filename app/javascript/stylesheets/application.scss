@@ -55,10 +55,11 @@ body {
     position: sticky;
     bottom: -10px;
     padding: 20px;
-    width: 70%;
+    width: 100%;
     margin-left: -15px;
     background-color: white;
     border-top: 1px solid #eeeeee;
+    border-radius: 8px;
     input[type=text] {
       height: 45px;
       font-size: 18px;
@@ -82,10 +83,10 @@ body {
     transition: background-color 0.5s ease;
     border-radius: 20px;
     &:hover {
-      background-color: #eeeeee;
+      background-color: #ff5059;
     }
     &.active {
-      background-color: black;
+      background-color: rgb(175, 50, 206);
       .name {
         color: white;
       }

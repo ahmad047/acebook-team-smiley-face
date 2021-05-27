@@ -1,15 +1,12 @@
 <% if !@user %>
 
-<div class="landing-body">
 <div class="signup">
   <%= link_to signup_path do %>
   Sign Up
   <% end %>
 </div>
-</div>
 
 <% else %>
-
 
 <div class="new-post">
 <%= form_with model: @post do |form| %>

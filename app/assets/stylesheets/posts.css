@@ -3,6 +3,7 @@
 .signup{
   position: relative;
   font-size: 60px;
+  margin-top: 25%;
 }
 
 .signup::before{

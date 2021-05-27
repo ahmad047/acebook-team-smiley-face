@@ -37,16 +37,17 @@
   <strong>Your posts:</strong>
   <% @posts.each do |post| %>
     <div class="post">
-    <% if post.user == current_user %>
-      <td><%= link_to 'Edit', edit_post_path(post) %></td>
-      <%= button_to "Delete post", post, :method => "delete" %>
-      <% end %>
       <strong><%= post.message %></strong>
       <p class="posted-at">Posted <%= time_ago_in_words(post.created_at) %> ago</p>
        <% if post.picture.attached? %>
         <%= image_tag(url_for(post.picture), class: "post-picture") %>
         <br>
       <% end %>
+      <% if post.user == current_user %>
+      <td><%= link_to 'Edit', edit_post_path(post), class: "my_button" %></td>
+        <%= button_to "delete post", post, class: "my_button", :method => "delete" %>
+      <% end %>
+      <p><%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
       <% if post.comments %>
           <strong>Comments</strong>
           <% post.comments.each do |comment| %>

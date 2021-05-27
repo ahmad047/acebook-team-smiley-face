@@ -5,7 +5,7 @@
   <% if friend.avatar.attached? %>
     <%= image_tag(url_for(friend.avatar), class: "profile_pic") %>
   <% end %>
-  <%= link_to "Accept", user_accept_request_path(friend) %>
+  <%= link_to "Accept", user_accept_request_path(id: friend.id) %>
   <%= link_to "Decline", user_decline_request_path(friend) %>
 <% end %>
 <br>

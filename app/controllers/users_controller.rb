@@ -60,23 +60,24 @@ class UsersController < ApplicationController
   end
 
   def add_friend
-    @user = User.find_by(params[:id])
-    current_user.friend_request(@user)
+    @user = current_user
+    friend = User.find_by(params[:id])
+    @user.friend_request(friend)
     redirect_to root_url, notice: "Friend request successfully sent."
   end
 
   def accept_request
     @user = current_user
-    friend = User.find_by(params[:id])
+    friend = User.find_by(id: 2)
     p @user
-    p friend
+    p friend 
     @user.accept_request(friend)
     redirect_to root_url, notice: "Friend request accepted."
   end
 
   def decline_request
     @user = current_user
-    friend = User.find_by(params[:id])
+    friend = User.find_by(id: params[:id])
     @user.decline_request(friend)
     redirect_to root_url, notice: "Friend request rejected."
   end
@@ -93,5 +94,4 @@ class UsersController < ApplicationController
       #params.require(user_id)
       params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :avatar)
     end
-
 end

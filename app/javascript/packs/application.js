@@ -13,19 +13,10 @@
 //= require rails-ujs
 //= require_tree .
 
+
 require("@rails/ujs").start()
+require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 
-import "./javascript/stylesheets/application.scss";
-import "bootstrap";
-require('popper.js');
-
-import Rails from "@rails/ujs"
-import Turbolinks from "turbolinks"
-import * as ActiveStorage from "@rails/activestorage"
-import "channels"
-
-Rails.start()
-Turbolinks.start()
-ActiveStorage.start()
+import '../stylesheets/application.scss'

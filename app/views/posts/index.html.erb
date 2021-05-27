@@ -43,9 +43,9 @@
         <% # EXTRACT THE ABOVE LOGIC INTO A HELPER? %>
         <!-- REACTS DROPDOWN HERE -->
           <div class="reacts">
-            <span class="emoji_horizontal"><%= button_to "👍 x#{thumbs_up_counter}", post_likes_path(post), method: :post, class: "emoji-button", params: { :react_type => 'like' }%></span>
-            <span class="emoji_horizontal"><%= button_to "💖 x#{heart_counter}", post_likes_path(post), method: :post, class: "emoji-button", params: { :react_type => 'heart' } %></span>
-            <span class="emoji_horizontal"><%= button_to "🔥 x#{fire_counter}", post_likes_path(post), method: :post, class: "emoji-button", params: { :react_type => 'fire' } %></span>
+            <span class="emoji_horizontal"><%= button_to "👍 #{thumbs_up_counter}", post_likes_path(post), method: :post, class: "emoji-button", params: { :react_type => 'like' }%></span>
+            <span class="emoji_horizontal"><%= button_to "💖 #{heart_counter}", post_likes_path(post), method: :post, class: "emoji-button", params: { :react_type => 'heart' } %></span>
+            <span class="emoji_horizontal"><%= button_to "🔥 #{fire_counter}", post_likes_path(post), method: :post, class: "emoji-button", params: { :react_type => 'fire' } %></span>
           </div>
         <% # COMMENTS SECTION HERE %>
         <% if post.comments %>

@@ -6,6 +6,8 @@
   --post-bg-color: white;
   --post-text: black;
   --posted-at-text: grey;
+  --button-colour : rgb(62, 165, 165);
+  --button-hover-colour : rgb(103, 182, 182);
 }
 
 
@@ -13,6 +15,24 @@ body {
   background-color: floralwhite;
   margin: 0;
   padding: 0;
+}
+
+.logo_header{
+  height: 45px;
+  margin-left: 1em;
+}
+
+.my_button{
+  color: white;
+  border-radius: 15px;
+  padding: 16px 28px;
+  background-color: rgb(62, 165, 165);
+  border: none;
+  transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.my_button:hover{
+  background-color: var(--button-hover-colour);
 }
 
 
@@ -39,16 +59,61 @@ main {
 .post{
   background-color: var(--post-bg-color);
   border-radius: 20px;
-  /* align-content: stretch; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin: 1em 2em;
   padding: 2em;
+  /* align-items: stretch; */
+  min-width: 700px;
+  font-size: 1.2em;
+  box-shadow: 0 8px 6px -10px black;
+}
+
+
+.new-post {
+  /* grid-column: 2 / 3; */
+  /* align-self: center; */
+  /* margin: 2em 0 1em 0.5em; */
+  background-color: var(--post-bg-color);
+  border-radius: 20px;
+  margin: 2em 2em;
+  padding: 2em;
   align-items: stretch;
-  min-width: 400px;
+  min-width: 700px;
+  box-shadow: 0 8px 6px -10px black;
   font-size: 1.2em;
 }
 
+.img-preview{
+  margin-top: 1em;
+  width: 100px;
+  display: block;
+}
+
+.text-field{
+  width: 100%;
+  transition: transform .2s;
+  border-radius: 10px;
+  padding: 1.5em 0 0 1em;
+}
+
+.upload-image-text{
+  margin-bottom: 1em;
+}
+
+.text-field:hover{
+  box-shadow: 5px 7px 8px -5px rgba(22, 29, 255, 0.6);
+}
+
+.submit-post{
+  display: block;
+  margin-top: 1.5em;
+  float: right;
+}
+
 .post-picture{
-  max-width: 300px;
+  max-width: 500px;
 }
 
 .posted-at{
@@ -83,19 +148,6 @@ main {
 
 .emoji-fire, .likes-counter{
   display: inline-block;
-}
-
-.new-post {
-  /* grid-column: 2 / 3; */
-  /* align-self: center; */
-  /* margin: 2em 0 1em 0.5em; */
-  background-color: var(--post-bg-color);
-  border-radius: 20px;
-  margin: 2em 2em;
-  padding: 2em;
-  align-items: stretch;
-  min-width: 400px;
-  font-size: 1.2em;
 }
 
 .header {

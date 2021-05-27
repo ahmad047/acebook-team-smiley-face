@@ -25,8 +25,8 @@
         <br>
       <% end %>
       <% if post.user == current_user %>
-      <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <%= button_to "delete post", post, :method => "delete" %>
+      <td><%= link_to 'Edit', edit_post_path(post), class: "my_button" %></td>
+        <%= button_to "delete post", post, class: "my_button", :method => "delete" %>
       <% end %>
       <p><%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
 

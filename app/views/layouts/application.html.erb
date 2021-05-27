@@ -38,7 +38,8 @@
   <div class="wrapper">
   <header class="header">
   <ul class="nav-ul">
-    <li class="nav-li"><a href="/">BookFace</a></li>
+
+    <li class="nav-li"><a href="/"><%= image_tag("bookface_logo.png", class: "logo_header")%></a></li>
       <% if @user %>
         <li class="nav-li">
         <%= link_to "View my profile", current_user %>

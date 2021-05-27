@@ -9,13 +9,14 @@
 
 <div class="new-post">
 <%= form_with model: @post do |form| %>
-  <%= form.text_field :message, :placeholder => "What's on your mind?" %>
+  <%= form.text_area :message, :placeholder => "What's on your mind?", class: "text-field", rows: '4' %>
   <br /><br />
   
-  <%= form.label "picture" %>
+  <%= form.label "Upload Image", class: "upload-image-text"%>
+  <br>
     <%= form.file_field :picture, onchange:"readURL(this);" %>
-    <img style="display: none" id="img_prev" src="#"/>
-  <%= form.submit "Submit" %>
+    <img style="display: none" id="img_prev" src="#" class="img-preview"/>
+  <%= form.submit "Share", class: "submit-post my_button" %>
 <% end %>
   </div>
 

@@ -1,0 +1,16 @@
+<h2>Friend Requests</h2>
+<% @requests.each do |friend| %>
+<p>Requested by:</p>
+<%= friend.first_name %>
+  <% if friend.avatar.attached? %>
+    <%= image_tag(url_for(friend.avatar), class: "profile_pic") %>
+  <% end %>
+  <%= form_tag ({controller: 'users', action: 'accept_request', method: 'post', user_id: friend.id}) do %>
+    <input type=submit value='Accept Request'>
+  <% end %>
+  <%= form_tag ({controller: 'users', action: 'decline_request', method: 'post', user_id: friend.id}) do %>
+    <input type=submit value='Decline Request'>
+  <% end %>
+<% end %>
+<br>
+<%= link_to 'Back to home', root_url %>

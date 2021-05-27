@@ -29,10 +29,16 @@
     <div class="post">
       <p><%= post.message %></p>
       <p class="posted-at">Posted <%= time_ago_in_words(post.created_at) %> ago</p>
+       <% if post.picture.attached? %>
+        <%= image_tag(url_for(post.picture), class: "post-picture") %>
+        <br>
+      <% end %>
       <% if post.user == current_user %>
+      <td><%= link_to 'Edit', edit_post_path(post) %></td>
         <%= button_to "delete post", post, :method => "delete" %>
       <% end %>
       <p><%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
+
     </div>
   <% end %>
 </p>
@@ -47,4 +53,3 @@
  <p><%= link_to "#{friend.first_name} #{friend.last_name}", friend %></p>
  <% end %>
  
-  

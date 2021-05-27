@@ -2,7 +2,11 @@ class UsersController < ApplicationController
   before_action :set_user, only: %i[ show edit update ]
   # GET /users or /users.json
   def index
-    @users = User.all
+    if current_user.is_admin
+      @users = User.all
+    else
+      redirect_to root_url
+    end
   end
 
   def friend_requests
@@ -29,8 +33,9 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      log_in(@user)
-      redirect_to root_url, notice: "Signed up successfully"
+      UserMailer.registration_confirmation(@user).deliver_now
+      # log_in(@user)
+      redirect_to root_url, notice: "Please confirm your email address"
     else
       render :new
     end
@@ -80,6 +85,18 @@ class UsersController < ApplicationController
     redirect_to root_url, notice: "Friend request rejected."
   end
 
+  def confirm_email
+    @user = User.find_by_confirm_token(params[:id])
+    if @user
+      @user.email_activate
+      flash[:success] = "Your email has been confirmed.
+      Please sign in to continue."
+      redirect_to login_url
+    else
+      flash[:error] = "Sorry. User does not exist"
+      redirect_to root_url
+    end
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

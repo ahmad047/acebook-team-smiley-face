@@ -187,6 +187,18 @@ a {
   font-size: 1.2em;
 }
 
+
+.my_button{
+  color: white;
+  border-radius: 12px;
+  padding: 8px 12px;
+  background-color: #62b6cb;
+  border: none;
+  display: inline-block;
+  transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+
 .your_posts{
 
   background-color: white;
@@ -198,5 +210,7 @@ a {
   min-width: 400px;
   max-width: 800px;
   font-size: 1.2em;
-  .btn{}
+  .button{
+    colour: black;
+  }
 }

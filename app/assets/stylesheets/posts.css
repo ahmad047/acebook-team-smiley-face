@@ -1,7 +1,7 @@
 /* ----------------- base styles --------------- */
 :root{
   --main-bg-color: #ebf6fa;
-  --header-bg-colour: #e2eafc;
+  --header-bg-colour: paleturquoise;
   --left-side-bg-color: #73d2de;
   --post-bg-color: white;
   --post-text: black;
@@ -200,7 +200,6 @@ a {
 
 
 .your_posts{
-
   background-color: white;
   border-radius: 20px;
   align-content: stretch;

@@ -68,9 +68,7 @@ class UsersController < ApplicationController
 
   def accept_request
     @user = current_user
-    friend = User.find_by(id: 2)
-    p @user
-    p friend 
+    friend = User.find_by(id: params[:user_id])
     @user.accept_request(friend)
     redirect_to root_url, notice: "Friend request accepted."
   end
@@ -91,7 +89,6 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      #params.require(user_id)
       params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :avatar)
     end
 end

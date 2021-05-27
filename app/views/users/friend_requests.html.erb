@@ -5,8 +5,12 @@
   <% if friend.avatar.attached? %>
     <%= image_tag(url_for(friend.avatar), class: "profile_pic") %>
   <% end %>
-  <%= link_to "Accept", user_accept_request_path(id: friend.id) %>
-  <%= link_to "Decline", user_decline_request_path(friend) %>
+  <%= form_tag ({controller: 'users', action: 'accept_request', method: 'post', user_id: friend.id}) do %>
+    <input type=submit value='Accept Request'>
+  <% end %>
+  <%= form_tag ({controller: 'users', action: 'decline_request', method: 'post', user_id: friend.id}) do %>
+    <input type=submit value='Decline Request'>
+  <% end %>
 <% end %>
 <br>
 <%= link_to 'Back to home', root_url %>

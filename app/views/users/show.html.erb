@@ -18,11 +18,11 @@
 <% end %>
 
 <% if current_user != @user %>
-  <%= link_to "Add Friend", user_add_friend_path(@user) %>
+  <%= form_tag ({controller: 'users', action: 'add_friend', method: 'post', user_id: @user.id}) do %>
+    <input type=submit value='Add Friend'>
+  <% end %>
 <% end %>
 
-
-<% if current_user.friend_request(@user) %><p>works</p><% end %>
 <p>
   <strong>Your posts:</strong>
   <% @posts.each do |post| %>

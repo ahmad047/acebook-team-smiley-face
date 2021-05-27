@@ -15,7 +15,7 @@
 
 require("@rails/ujs").start()
 require("@rails/ujs").start()
-require("@rrails/activestorage").start()
+require("@rails/activestorage").start()
 require("channels")
 
 import "./stylesheets/application.scss";

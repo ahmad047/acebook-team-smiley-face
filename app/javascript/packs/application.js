@@ -21,3 +21,4 @@ require("channels")
 
 import '../stylesheets/application.scss'
 import '/Users/m/Projects/acebook-team-smiley-face/app/assets/stylesheets/posts.css'
+

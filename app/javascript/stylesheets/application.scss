@@ -18,6 +18,7 @@ body {
 
   .navbar {
     border-bottom: 1px solid #eeeeee;
+    background-color: #02ee9f;
     margin-left: -15px;
     width: calc(100% + 30px);
   }
@@ -27,7 +28,8 @@ body {
     .content-container {
       display: inline-block;
       .content {
-        background-color: #eeeeee;
+        background-color: #02ee9f;
+        color: white;
         padding: 8px 16px;
         border-radius: 20px;
       }

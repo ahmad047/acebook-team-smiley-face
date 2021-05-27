@@ -1,4 +1,3 @@
-
 <p>
   <strong>First name:</strong>
   <%= @user.first_name %>
@@ -13,6 +12,16 @@
   <strong>Email:</strong>
   <%= @user.email %>
 </p>
+
+<% if current_user == @user %>
+  <p class="posted-by"><%= link_to "Friend Requests", user_friend_requests_path(@user) %></p>
+<% end %>
+
+<% if current_user != @user %>
+  <%= form_tag ({controller: 'users', action: 'add_friend', method: 'post', user_id: @user.id}) do %>
+    <input type=submit value='Add Friend'>
+  <% end %>
+<% end %>
 
 <p>
   <strong>Your posts:</strong>
@@ -37,3 +46,10 @@
 <% if current_user == @user %>
   <%= link_to 'Edit', edit_user_path(@user) %>
 <% end %>
+
+  <strong>Your Friends:</strong>
+
+ <% @user.friends.each do |friend| %>
+ <p><%= link_to "#{friend.first_name} #{friend.last_name}", friend %></p>
+ <% end %>
+ 

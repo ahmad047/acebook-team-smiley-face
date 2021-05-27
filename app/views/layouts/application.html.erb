@@ -59,10 +59,12 @@
             <%= image_tag(url_for(current_user.avatar), class: "profile_pic") %>
             <a href="#"><li class="sidebar-li">Hi, <%= current_user.first_name%> </li></a>
             <a href="#"><li class="sidebar-li"> Inbox</li></a>
+            <p class="sidebar-li"> <%= "Friends #{current_user.friends.count}" %></p>
           <% else %>
             <%= image_tag("profile_photo.png", class: "profile_pic")%>
             <a href="#"><li class="sidebar-li">Hi, <%= current_user.first_name%> </li></a>
             <a href="#"><li class="sidebar-li"> Inbox</li></a>
+            <p class="sidebar-li"> <%= "Friends #{current_user.friends.count}" %></p>
           <% end %>
         <% end %>
       </ul>

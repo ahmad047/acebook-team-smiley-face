@@ -6,6 +6,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'redis'
 gem 'bootstrap', '~> 5.0.1'
 gem 'webpacker', '~> 5.4'
 gem "aws-sdk-s3", require: false

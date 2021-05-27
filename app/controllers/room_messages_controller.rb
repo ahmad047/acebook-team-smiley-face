@@ -25,6 +25,7 @@ class RoomMessagesController < ApplicationController
     @room_message = RoomMessage.new(room_message_params)
     @room_message.user = current_user
     @room_message.save
+    
     redirect_to request.referrer
   end
 

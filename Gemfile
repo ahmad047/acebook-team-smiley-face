@@ -10,11 +10,11 @@ gem 'bootstrap', '~> 5.0.1'
 
 gem "aws-sdk-s3", require: false
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 6.1'
+gem 'rails', '6.1.3.2'
 # Use postgresql as the database for Active Record
 gem 'pg'
 # Use Puma as the app server
-gem 'puma', '~> 3.12.6'
+gem 'puma'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 6.0'
 # Use Uglifier as compressor for JavaScript assets

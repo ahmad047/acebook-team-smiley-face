@@ -9,13 +9,13 @@
 
 <div class="new-post">
 <%= form_with model: @post do |form| %>
-  <%= form.text_field :message, :placeholder => "What's on your mind?" %>
+  <%= form.text_field :message, :placeholder => "What's on your mind? #{current_user.first_name.capitalize}" %>
   <br /><br />
   
   <%= form.label "picture" %>
     <%= form.file_field :picture, onchange:"readURL(this);" %>
     <img style="display: none" id="img_prev" src="#"/>
-  <%= form.submit "Submit" %>
+  <%= form.submit "Post" %>
 <% end %>
   </div>
 
@@ -45,7 +45,7 @@
             <span class="emoji_horizontal"><%= button_to "🔥 #{fire_counter}", post_likes_path(post), method: :post, class: "emoji-button", params: { :react_type => 'fire' } %></span>
           </div>
         <% if post.comments %>
-          <strong>comments:</strong>
+          <strong>Comments</strong>
           <% post.comments.each do |comment| %>
             <p><%= comment.user.first_name %>: <%= comment.content %></p>
               <% if comment.user == current_user %>
@@ -55,8 +55,8 @@
         <% end %>
       <%= form_with model: [post, post.comments.new] do |f| %>
       <br />
-        <%= f.text_field :content, placeholder: 'Add a comment...' %>
-        <%= f.submit "add comment" %>
+        <%= f.text_field :content, placeholder: 'Write a comment...' %>
+        <%= f.submit "Add comment" %>
       <% end %>
   </div>
 

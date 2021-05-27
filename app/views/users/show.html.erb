@@ -15,6 +15,12 @@
 </p>
 
 <p>
+<% if current_user == @user %>
+  <%= link_to 'Edit profile', edit_user_path(@user) %>
+<% end %>
+</p>
+
+<p>
   <strong>Your posts:</strong>
   <% @posts.each do |post| %>
     <div class="post">
@@ -33,7 +39,3 @@
     </div>
   <% end %>
 </p>
-
-<% if current_user == @user %>
-  <%= link_to 'Edit', edit_user_path(@user) %>
-<% end %>

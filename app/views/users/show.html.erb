@@ -1,3 +1,7 @@
+<br />
+<h4>Your details:</h4>
+<div class="user_info">
+
 <p>
   <strong>First name:</strong>
   <%= @user.first_name %>
@@ -34,7 +38,16 @@
 <% end %>
 
 <p>
-  <strong>Your posts:</strong>
+<% if current_user == @user %>
+  <%= link_to 'edit profile', edit_user_path(@user),class: "my_button" %>
+<% end %>
+</p>
+
+</div>
+
+
+<% if @posts.length >= 1 %>
+  <h4>Your posts:</h4>
   <% @posts.each do |post| %>
     <div class="post">
       <strong><%= post.message %></strong>
@@ -44,16 +57,20 @@
         <br>
       <% end %>
       <% if post.user == current_user %>
-      <td><%= link_to 'Edit', edit_post_path(post), class: "my_button" %></td>
-        <%= button_to "delete post", post, class: "my_button", :method => "delete" %>
+        <%= link_to 'edit', edit_post_path(post), class: "my_button" %>
+        <br /> <br />
+        <%= button_to "delete ", post, class: "my_button", :method => "delete" %>
       <% end %>
-      <p><%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
+      <br />
+      <% if post.likes.count >= 1 %>
+         <small> <%= post.likes.count %> </small> 👍💖🔥
+      <% end %>
       <% if post.comments %>
           <strong>Comments</strong>
           <% post.comments.each do |comment| %>
             <p><%= comment.user.first_name %>: <%= comment.content %></p>
           <% end %>
         <% end %>
-    </div>
+      </div>
   <% end %>
-</p>
+<% end %>

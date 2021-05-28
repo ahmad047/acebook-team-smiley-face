@@ -1,10 +1,8 @@
-<h1>&emsp;&emsp;Login</h1>
-<div align="center" class="user_info">
-
+<%= stylesheet_link_tag "login.css" %>
 <%= form_with(url: login_path, scope: :session, local: true) do |form| %>
-<div class="login__container">
 
-  <div class="container__child signup__form">
+  <div class="form_wrapper">
+  <h2>Login</h2>
     <div class="form-group">
       <%= label_tag :email %>
        <%= text_field_tag :email %>
@@ -14,15 +12,10 @@
     <%= password_field_tag :password %>
     </div>
     <div class="form-group">
-      <%= submit_tag :Login %>
+      <%= submit_tag :Login, class: "my_button" %>
     </div>
   <% end %>
   </div>
 
-  <div class="actions">
-    <%= label_tag %>
-    <%= submit_tag :Login %>
-  </div>
-<% end %>
-</div>
+
 

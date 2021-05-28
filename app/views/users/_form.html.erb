@@ -1,5 +1,6 @@
-<div align="center" class="user_info">
-<%= form_with(model: user, local: true) do |form| %>
+
+
+   <%= form_with(model: user, local: true) do |form| %>
   <% if user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
@@ -11,17 +12,13 @@
       </ul>
     </div>
   <% end %>
+
+
+   <div class="form_wrapper">
   
-  <div class="signup__container">
-  <div class="container__child signup__thumbnail">
-    <div class="thumbnail__logo">
-      <h1 class="logo__text">Welcome to BookFace</h1>
-    </div>
-    <div class="signup__overlay"></div>
-  </div>
-  <div class="container__child signup__form">
-    <form action="#">
-      <div class="form-group">
+
+      <h1>Welcome to BookFace</h1>
+    <div class="form-group">
       <%= form.label :first_name %>
       <%= form.text_field :first_name, class:"form-control" %>
     </div>
@@ -46,16 +43,15 @@
       <%= form.password_field :password_confirmation, class:"form-control" %>
     </div>
 
-    <div class="field">
+    <div class="form-group">
       <%= form.label "profile_photo" %>
       <%= form.file_field :avatar, onchange:"readURL(this);" %>
       <img style="display: none" id="img_prev" src="#" />
     </div>
 
-    <div class="actions">
+    <div class="form-group">
       <%# submit_tag :Sign Up %>
       <%= form.submit "Sign-up", class:"btn--form" %>
     </div>
-  </div>
   </div>
 <% end %>

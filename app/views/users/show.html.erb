@@ -1,5 +1,6 @@
 <br />
-<h4>Your details:</h4>
+<br />
+<h4> <%= "#{@user.first_name.capitalize}" %> details:</h4>
 <div class="user_info">
 
 <p>
@@ -47,7 +48,7 @@
 
 
 <% if @posts.length >= 1 %>
-  <h4>Your posts:</h4>
+  <h4> <%= "#{@user.first_name.capitalize}" %> posts:</h4>
   <% @posts.each do |post| %>
     <div class="your_posts">
       <strong><%= post.message %></strong>

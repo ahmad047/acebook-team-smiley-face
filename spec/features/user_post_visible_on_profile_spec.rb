@@ -7,7 +7,7 @@ feature 'User profile' do
     fill_in 'Password', with: 'password123'
     click_button 'Login'
     fill_in 'post[message]', with: 'Hello, world!'
-    click_button 'Submit'
+    click_button 'Post'
     visit '/'
     expect(page).to have_content 'Hello, world!'
   end

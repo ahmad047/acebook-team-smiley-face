@@ -1,51 +1,70 @@
-# AceBook
+# BookFace
 
-CRUD login
+A full-stack web app inspired by the functionality of FaceBook. The web app allows the user to sign up, add friends, and make a post, message and more.
 
-login --> session params user id
+**Visit the website [here.](https://stormy-beach-31437.herokuapp.com/)**
 
-form
-email: email@mail.com
-password: originalpassword
-button(login)
+The features built in this project are based on [user stories.](./resources/user_stories.md)
 
-find user id by email
-create session (params user id)
+Design, layout, functionality, and features were inspired by Facebook.
 
-log out
-delete (destroy session)
+## Screenshots
 
---> post : user id
---> commenting
---> likes
+![Sign-up](resources/signup.png)
 
-CRUD signup
+![Feed](resources/feed.png)
 
-C - creating a user
-R - display user
-U - edit profile
-D - deleting profile
+![Sign-in](resources/signin.png)
 
-## Quickstart
+## 🏁 Getting Started
 
-First, clone this repository. Then:
+To get started with the app, clone the repo then install the required gems:
 
-```bash
-> bundle install
-> bin/rails db:create
-> bin/rails db:migrate
-
-> bundle exec rspec # Run the tests to ensure it works
-> bin/rails server # Start the server at localhost:3000
+```sh
+bundle install --without production
 ```
 
-## Troubleshooting
+Next, migrate the database:
 
-If you don't have Node.js installed yet, you might run into this error when running rspec:
-
-```
-ExecJS::RuntimeUnavailable:
-  Could not find a JavaScript runtime. See https://github.com/rails/execjs for a list of available runtimes.
+```sh
+rails db:create
+rails db:migrate
 ```
 
-Rails requires a Javascript runtime to work. The easiest way is to install Node by running `brew install node` - and then run `bundle exec rspec` again
+Run the test suite to verify that everything is working correctly.
+
+```sh
+rspec
+```
+
+If the test suite passes, run the app in a local server:
+
+```sh
+rails server
+```
+
+## Features
+
+- Create an account
+- Sign in with created account
+- Add a user profile picture
+- Make a post to the feed
+- Post a picture
+- View all post peeps on the main feed
+- View own posts on the profile feed
+- View posts of the chosen user's feed
+- View other user profiles
+- Add a comment
+- Add a reaction (👍 💖 🔥)
+- Instant-messenging chat-rooms
+- Log out
+
+## Built Using
+
+- HTML
+- CSS (Bootstrap)
+- JavaScript
+- jQuery
+- Ruby
+- Ruby on Rails
+- PostgreSQL

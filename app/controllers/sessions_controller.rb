@@ -14,9 +14,14 @@ include SessionsHelper
 
     # authenticate comes from 'has_secure_password'
     if @user && @user.authenticate(params[:password])
+      if @user.email_confirmed
       #session helper
-      log_in(@user)
-      redirect_to root_url, notice: "Logged in successfully"
+        log_in(@user)
+        redirect_to root_url, notice: "Logged in successfully"
+      else
+        flash[:alert] = "Please activate your account."
+        render 'new'
+      end
     else
       flash[:alert] = "Invalid email/password combination"
       render 'new'

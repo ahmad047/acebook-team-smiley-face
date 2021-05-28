@@ -6,12 +6,10 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-gem 'redis'
 gem 'bootstrap', '~> 5.0.1'
 gem 'webpacker', '~> 5.4'
 gem "aws-sdk-s3", require: false
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '6.1.3.2'
+gem 'rails' 
 # Use postgresql as the database for Active Record
 gem 'pg'
 # Use Puma as the app server
@@ -26,11 +24,11 @@ gem 'will_paginate', '~> 3.1.7'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 3.0'
+gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 gem 'orderly'
-
+gem 'has_friendship'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

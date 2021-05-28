@@ -10,6 +10,7 @@
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag "posts.css" %>
   <!-- ALLOWS JS-COMPATIBLE BOOTSTRAP FUNCTIONALITY -->
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -19,6 +20,7 @@
   function readURL(input) {
   if (input.files && input.files[0]) {
   var reader = new FileReader();
+
   reader.onload = function (e) {
   $('#img_prev')
   .show()
@@ -26,6 +28,7 @@
   .width(150)
   .height(200);
   };
+
   reader.readAsDataURL(input.files[0]);
   }
   }
@@ -33,11 +36,12 @@
 </head>
       <%= notice %>
       <%= alert %>
+
   <div class="wrapper">
   <header class="header">
   <ul class="nav-ul">
-    <li class="nav-li"><a href="/">BookFace</a></li>
-      <% if @user %>
+    <li class="nav-li"><a href="/"><%= image_tag("bookface_logo.png", class: "logo_header")%></a></li>
+      <% if logged_in? %>
         <li class="nav-li">
         <%= link_to "View my profile", current_user %>
         </li>
@@ -45,23 +49,26 @@
       <% else %>
       <li class="nav-li"  style="float:right"><a href="/login" > Log In </a></li>
     <% end %>
-    <li class="nav-li username" style="float:right"><%= @user ? "Logged in as: #{@user.first_name}" : '' %></li>
+    <li class="nav-li username" style="float:right"><%= logged_in? ? "Logged in as: #{current_user.first_name}" : '' %></li>
+    <li class="nav-li username" ><%= logged_in? ? "Messages" : '' %></li>
   </ul>
   </header>
   <body>
     <div class="left-side">
       <ul>
-        <% if current_user %>
-          <%  if current_user.avatar.attached? %>
+        <div class="profile_pic_container">
+        <% if logged_in? %>
+          <% if current_user.avatar.attached? %>
             <%= image_tag(url_for(current_user.avatar), class: "profile_pic") %>
-            <a href="#"><li class="sidebar-li">Hi, <%= current_user.first_name%> </li></a>
-            <a href="#"><li class="sidebar-li"> Inbox</li></a>
+            <a href="#"><li class="sidebar-li">@<%= current_user.first_name%><%= current_user.last_name%> </li></a>
+            <a href="#"><li class="sidebar-li">Messages</li></a>
           <% else %>
             <%= image_tag("profile_photo.png", class: "profile_pic")%>
-            <a href="#"><li class="sidebar-li">Hi, <%= current_user.first_name%> </li></a>
-            <a href="#"><li class="sidebar-li"> Inbox</li></a>
+            <a href="#"><li class="sidebar-li">@<%= current_user.first_name%><%= current_user.last_name%> </li></a>
+            <a href="#"><li class="sidebar-li">Messages</li></a>
           <% end %>
         <% end %>
+      </div>
       </ul>
     </div>
   <main>

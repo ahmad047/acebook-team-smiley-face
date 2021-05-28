@@ -1,3 +1,6 @@
+<br />
+<h4>Your details:</h4>
+<div class="user_info">
 
 <p>
   <strong>First name:</strong>
@@ -14,26 +17,60 @@
   <%= @user.email %>
 </p>
 
+<% if current_user == @user %>
+  <%= link_to 'Edit', edit_user_path(@user) %>
+<% end %>
+
+<strong>Friends</strong>
+
+<% @user.friends.each do |friend| %>
+<p><%= link_to "#{friend.first_name} #{friend.last_name}", friend %></p>
+<% end %>
+
+<% if current_user == @user %>
+  <p class="posted-by"><%= link_to "Friend Requests", user_friend_requests_path(@user) %></p>
+<% end %>
+
+<% if current_user != @user %>
+  <%= form_tag ({controller: 'users', action: 'add_friend', method: 'post', user_id: @user.id}) do %>
+    <input type=submit value='Add Friend'>
+  <% end %>
+<% end %>
+
 <p>
-  <strong>Your posts:</strong>
+<% if current_user == @user %>
+  <%= link_to 'edit profile', edit_user_path(@user),class: "my_button" %>
+<% end %>
+</p>
+
+</div>
+
+
+<% if @posts.length >= 1 %>
+  <h4>Your posts:</h4>
   <% @posts.each do |post| %>
     <div class="post">
-      <p><%= post.message %></p>
+      <strong><%= post.message %></strong>
       <p class="posted-at">Posted <%= time_ago_in_words(post.created_at) %> ago</p>
        <% if post.picture.attached? %>
         <%= image_tag(url_for(post.picture), class: "post-picture") %>
         <br>
       <% end %>
       <% if post.user == current_user %>
-      <td><%= link_to 'Edit', edit_post_path(post), class: "my_button" %></td>
-        <%= button_to "delete post", post, class: "my_button", :method => "delete" %>
+        <%= link_to 'edit', edit_post_path(post), class: "my_button" %>
+        <br /> <br />
+        <%= button_to "delete ", post, class: "my_button", :method => "delete" %>
       <% end %>
-      <p><%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
-
-    </div>
+      <br />
+      <% if post.likes.count >= 1 %>
+         <small> <%= post.likes.count %> </small> 👍💖🔥
+      <% end %>
+      <% if post.comments %>
+          <strong>Comments</strong>
+          <% post.comments.each do |comment| %>
+            <p><%= comment.user.first_name %>: <%= comment.content %></p>
+          <% end %>
+        <% end %>
+      </div>
   <% end %>
-</p>
-
-<% if current_user == @user %>
-  <%= link_to 'Edit', edit_user_path(@user) %>
 <% end %>

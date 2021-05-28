@@ -1,9 +1,5 @@
 <% if !@user %>
-
-<%= link_to signup_path do %>
-  Sign Up
-  <% end %>
-
+  <%controller.redirect_to signup_path %>
 <% else %>
 
 

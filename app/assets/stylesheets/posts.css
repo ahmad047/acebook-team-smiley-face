@@ -299,6 +299,23 @@ body {
   border-radius: 3px;
   box-shadow: 0px 3px 7px rgba(0,0,0,.25);
 }
+.login__container {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  left: 0;
+  margin-right: auto;
+  margin-left: auto;
+  transform: translateY(-50%);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 400px;
+  height: 300px;
+  border-radius: 3px;
+  box-shadow: 0px 3px 7px rgba(0,0,0,.25);
+}
 .signup__overlay {
   position: absolute;
   top: 0;
@@ -322,7 +339,6 @@ body {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  background: url(http://ultraimg.com/images/spectre-login.jpg);
   background-repeat: no-repeat;
   background-position: top center;
   background-size: cover;
@@ -367,10 +383,30 @@ label {
   border-left: 0;
   border-radius: 0;
 }
+
+.form-control_2 {
+  background-color: transparent;
+  border-top: 0;
+  border-right: 0;
+  border-left: 0;
+  border-radius: 0;
+  width: 400px;
+}
 [type="text"] {color: #111;}
 [type="password"] {color: #111;}
 .btn--form {
   padding: .5rem 2.5rem;
+  font-size: .95rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #fff;
+  background: #111;
+  border-radius: remy(35px);
+}
+
+.btn--form_2 {
+  padding: .5rem 2.5rem;
+  margin-top: 20px;
   font-size: .95rem;
   font-weight: 600;
   text-transform: uppercase;

@@ -63,12 +63,12 @@
         <% if logged_in? %>
           <% if current_user.avatar.attached? %>
             <%= image_tag(url_for(current_user.avatar), class: "profile_pic") %>
-            <a href="#"><li class="name"><%= current_user.first_name %><%= current_user.last_name %> </li></a>
+            <a href="#"><li class="name"><%= current_user.first_name %> <%= current_user.last_name %> </li></a>
             <a href="#"><li class="sidebar-li">Messages</li></a>
             <a href="#"><li class="sidebar-li"><%= "Friends: #{current_user.friends.count}"%></li></a>
           <% else %>
             <%= image_tag("profile_photo.png", class: "profile_pic")%>
-            <a href="#"><li class="name"><%= current_user.first_name%><%= current_user.last_name%> </li></a>
+            <a href="#"><li class="name"><%= current_user.first_name%> <%= current_user.last_name%> </li></a>
             <a href="#"><li class="sidebar-li">Messages</li></a>
             <a href="#"><li class="sidebar-li"><%= "Friends: #{current_user.friends.count}"%></li></a>
           <% end %>
@@ -80,7 +80,7 @@
       <% if friend.avatar.attached? %>
       <%= link_to user_path(friend), class: "friend_link" do %>
         <%= image_tag(url_for(friend.avatar), class: "friend_pic") %>
-      <% end %>    
+      <% end %>
       <% end %>
      <% end %>
       </ul>

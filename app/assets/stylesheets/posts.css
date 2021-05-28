@@ -394,6 +394,7 @@ a {
   min-width: 400px;
   max-width: 800px;
   font-size: 1.2em;
+}
 
 label {
   display: table-cell;

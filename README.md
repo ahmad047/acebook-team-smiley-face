@@ -1,6 +1,6 @@
-# BookFace
+# Bookface
 
-A full-stack web app inspired by the functionality of FaceBook. The web app allows the user to sign up, add friends, and make a post, message and more.
+A full-stack web app inspired by the functionality of Facebook. The web app allows the user to sign up, add friends, and make a post, message and more.
 
 **Visit the website [here.](https://stormy-beach-31437.herokuapp.com/)**
 
@@ -31,9 +31,10 @@ rails db:create
 rails db:migrate
 ```
 
-Run the test suite to verify that everything is working correctly.
+Run the test suite to verify that everything is working correctly, but first seed the test database with our test data.
 
 ```sh
+rake db:seed RAILS_ENV=test
 rspec
 ```
 
@@ -47,17 +48,19 @@ rails server
 
 - Create an account
 - Sign in with created account
+- Email account confirmation
+- Log in and out
 - Add a user profile picture
 - Make a post to the feed
 - Post a picture
-- View all post peeps on the main feed
+- View all posts on the main feed
 - View own posts on the profile feed
 - View posts of the chosen user's feed
 - View other user profiles
 - Add a comment
 - Add a reaction (👍 💖 🔥)
-- Instant-messenging chat-rooms
-- Log out
+- Instant-messaging chat-room
+- Friend requests
 
 ## Built Using
 
@@ -68,3 +71,4 @@ rails server
 - Ruby
 - Ruby on Rails
 - PostgreSQL
+- RSpec/Capybara

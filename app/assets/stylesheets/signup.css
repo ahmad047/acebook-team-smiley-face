@@ -1,11 +1,3 @@
-/* .wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto;
-  background-color: floralwhite;
-} */
-
 main {
   padding: 0;
   margin: 0;
@@ -20,7 +12,7 @@ main {
 }
 
 .form_wrapper{
-  background-color: rgba(255, 255, 255, 0.6);
+  background-color: red;
   border-radius: 25px;
   padding: 5em;
   display: flex;

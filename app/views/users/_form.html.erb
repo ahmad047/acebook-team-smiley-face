@@ -1,3 +1,4 @@
+<div align="center" class="user_info">
 <%= form_with(model: user, local: true) do |form| %>
   <% if user.errors.any? %>
     <div id="error_explanation">
@@ -42,11 +43,10 @@
     <img style="display: none" id="img_prev" src="#" />
   </div>
 
-  <div class="actions">
-    <%# submit_tag :Sign Up %>
+  <div>
+    <%= form.label " " %>
     <%= form.submit name:"Sign-up" %>
-
-
   </div>
 
 <% end %>
+</div>

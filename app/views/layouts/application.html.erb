@@ -38,35 +38,35 @@
   <div class="wrapper">
   <header class="header">
   <ul class="nav-ul">
-    <li class="nav-li"><a href="/">BookFace</a></li>
-    <% if logged_in? %>
-      <li class="nav-li">
-      <%= link_to "View my profile", current_user %>
-      </li>
-      <li class="nav-li"  style="float:right"><a href="/logout" > Log Out </a></li>
-      <li class="nav-li username" style="float:right"><%= "Logged in as: #{current_user.first_name}"%></li>
+    <li class="nav-li"><a href="/"><%= image_tag("bookface_logo.png", class: "logo_header")%></a></li>
+      <% if logged_in? %>
+        <li class="nav-li">
+        <%= link_to "View my profile", current_user %>
+        </li>
+        <li class="nav-li"  style="float:right"><a href="/logout" > Log Out </a></li>
       <% else %>
       <li class="nav-li"  style="float:right"><a href="/login" > Log In </a></li>
     <% end %>
-
+    <li class="nav-li username" style="float:right"><%= logged_in? ? "Logged in as: #{current_user.first_name}" : '' %></li>
+    <li class="nav-li username" ><%= logged_in? ? "Messages" : '' %></li>
   </ul>
   </header>
   <body>
     <div class="left-side">
       <ul>
+        <div class="profile_pic_container">
         <% if logged_in? %>
           <% if current_user.avatar.attached? %>
             <%= image_tag(url_for(current_user.avatar), class: "profile_pic") %>
-            <a href="#"><li class="sidebar-li">Hi, <%= current_user.first_name%> </li></a>
-            <a href="#"><li class="sidebar-li"> Inbox</li></a>
-            <p class="sidebar-li"> <%= "Friends #{current_user.friends.count}" %></p>
+            <a href="#"><li class="sidebar-li">@<%= current_user.first_name%><%= current_user.last_name%> </li></a>
+            <a href="#"><li class="sidebar-li">Messages</li></a>
           <% else %>
             <%= image_tag("profile_photo.png", class: "profile_pic")%>
-            <a href="#"><li class="sidebar-li">Hi, <%= current_user.first_name%> </li></a>
-            <a href="#"><li class="sidebar-li"> Inbox</li></a>
-            <p class="sidebar-li"> <%= "Friends #{current_user.friends.count}" %></p>
+            <a href="#"><li class="sidebar-li">@<%= current_user.first_name%><%= current_user.last_name%> </li></a>
+            <a href="#"><li class="sidebar-li">Messages</li></a>
           <% end %>
         <% end %>
+      </div>
       </ul>
     </div>
   <main>

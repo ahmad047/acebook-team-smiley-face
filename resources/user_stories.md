@@ -61,5 +61,5 @@ I want to send friend request to make new friends
 
 As a user
 So I can connect with others on Bookface
-I want to be able to receive friend request to make new friends
+I want to be able to receive friend requests to make new friends
 ```

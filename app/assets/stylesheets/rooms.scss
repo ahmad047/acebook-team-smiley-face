@@ -1,3 +1,113 @@
 // Place all the styles related to the Rooms controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.col-9 {
+  overflow-y: hidden;
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none;
+}
+.chat-room {
+  height: 100vh;
+  padding-top: 50px;
+  #messages {
+    height: 100%;
+    overflow-y: scroll;
+    padding-bottom: 200px;
+    padding-top: 30px;
+  }
+  .navbar {
+    border-bottom: 1px solid #eeeeee;
+    background-color: paleturquoise;
+    margin-left: -15px;
+    width: calc(100% + 30px);
+    padding: 8px 16px;
+    border-radius: 8px;
+    height: 6%;
+  }
+  .message {
+    min-height: 59px;
+    .content-container {
+      display: inline-block;
+      .content {
+        background-color: #02ee9f;
+        color: white;
+        padding: 8px 16px;
+        border-radius: 20px;
+      }
+      .author {
+        font-size: 0.8rem;
+        color: #777777;
+        margin-left: 10px;
+      }
+    }
+    &.me {
+      .content-container {
+        float: right;
+        .content {
+          background-color: #007bff;
+          color: white;
+        }
+      }
+    }
+  }
+  .chat-box {
+    position: sticky;
+    bottom: -10px;
+    padding: 20px;
+    padding-top: 15px;
+    width: 102%;
+    margin-left: -15px;
+    background-color: #fef9f9;
+    border-top: 1px solid #eeeeee;
+    border-radius: 8px;
+    input[type='text'] {
+      height: 40px;
+      font-size: 18px;
+      padding: 8px;
+    }
+    .btn {
+      height: 45px;
+    }
+  }
+}
+.card.no-outline {
+  border: none;
+  background-color: white;
+}
+.room-link {
+  &:hover {
+    text-decoration: none;
+  }
+  .room-card {
+    transition: background-color 0.5s ease;
+    border-radius: 20px;
+    &:hover {
+      background-color: #ff5059;
+    }
+    &.active {
+      background-color: rgb(245, 183, 102);
+      .name {
+        color: white;
+      }
+      .member-count {
+        color: #e0e0e0;
+      }
+    }
+    .name {
+      font-weight: bold;
+      color: rgb(255, 255, 255);
+    }
+    .member-count {
+      color: #777777;
+      font-weight: light;
+    }
+  }
+}
+.rooms-sidebar {
+  padding-top: 50px;
+  padding-right: 50px;
+  padding-left: -20px;
+  border-right: 1px solid #eeeeee;
+}

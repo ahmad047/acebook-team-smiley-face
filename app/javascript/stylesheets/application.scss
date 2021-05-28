@@ -1,3 +1,6 @@
+// Place all the styles related to the Rooms controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
 .col-9 {
   overflow-y: hidden;
   ::-webkit-scrollbar {
@@ -5,26 +8,24 @@
   }
   -ms-overflow-style: none;
 }
-
 .chat-room {
   height: 100vh;
-
+  padding-top: 50px;
   #messages {
     height: 100%;
     overflow-y: scroll;
     padding-bottom: 200px;
-    padding-top: 20px;
+    padding-top: 30px;
   }
-
   .navbar {
     border-bottom: 1px solid #eeeeee;
-    background-color: #38dfa7;
+    background-color: paleturquoise;
     margin-left: -15px;
     width: calc(100% + 30px);
     padding: 8px 16px;
     border-radius: 8px;
+    height: 6%;
   }
-
   .message {
     min-height: 59px;
     .content-container {
@@ -55,13 +56,14 @@
     position: sticky;
     bottom: -10px;
     padding: 20px;
-    width: 100%;
+    padding-top: 15px;
+    width: 102%;
     margin-left: -15px;
-    background-color: white;
+    background-color: #fef9f9;
     border-top: 1px solid #eeeeee;
     border-radius: 8px;
     input[type='text'] {
-      height: 45px;
+      height: 40px;
       font-size: 18px;
       padding: 8px;
     }
@@ -70,11 +72,10 @@
     }
   }
 }
-
 .card.no-outline {
   border: none;
+  background-color: paleturquoise;
 }
-
 .room-link {
   &:hover {
     text-decoration: none;
@@ -86,7 +87,7 @@
       background-color: #ff5059;
     }
     &.active {
-      background-color: rgb(175, 50, 206);
+      background-color: rgb(245, 183, 102);
       .name {
         color: white;
       }
@@ -96,7 +97,7 @@
     }
     .name {
       font-weight: bold;
-      color: black;
+      color: rgb(255, 255, 255);
     }
     .member-count {
       color: #777777;
@@ -104,7 +105,9 @@
     }
   }
 }
-
 .rooms-sidebar {
+  padding-top: 50px;
+  padding-right: 50px;
+  padding-left: -20px;
   border-right: 1px solid #eeeeee;
 }

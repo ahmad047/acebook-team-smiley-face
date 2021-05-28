@@ -5,9 +5,9 @@
 
 <div class="new-post">
 <%= form_with model: @post do |form| %>
-  <%= form.text_area :message, :placeholder => "What's on your mind? #{current_user.first_name.capitalize}", class: "text-field", rows: '4' %>
+  <%= form.text_area :message, :placeholder => "What's on your mind, #{current_user.first_name.capitalize}?", class: "text-field", rows: '4' %>
   <br /><br />
-  
+
   <%= form.label "Upload Image", class: "upload-image-text"%>
   <br>
     <%= form.file_field :picture, onchange:"readURL(this);" %>

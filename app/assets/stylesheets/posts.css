@@ -55,7 +55,7 @@ body {
   background-color: rgb(219, 250, 219);
   display: grid;
   height: 100vh;
-  grid-template: 75px 1fr auto / minmax(175px, 250px) 1fr minmax(100px, 200px);
+  grid-template: 75px 1fr auto / minmax(250px, 275px) 1fr minmax(100px, 200px);
 }
 
 main {
@@ -217,7 +217,6 @@ main {
 
 .right-side {
   background-color: var(--main-bg-color);
-  padding: 4em 2em 0 0;
   /* background-color: magenta; */
   grid-column: 3 / 4;
 }
@@ -245,6 +244,7 @@ footer {
   border-radius: 50%;
   width: 140px;
   width: 140px;
+  margin: 0 auto 1.25em auto;
 }
 
 
@@ -283,9 +283,8 @@ a {
 /* ----------------- side bar --------------- */
 
 .sidebar-li {
+  text-decoration: underline;
   list-style-type: none;
-  color: black;
-  text-decoration: none;
 }
 
 .profile-photo {

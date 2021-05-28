@@ -21,12 +21,16 @@
   </div>
 
     <% @posts.each do |post| %>
-      <div class="post">
-      <strong><%= post.message %></strong> <br />
+    <div class="post-wrapper">
+          <div class="post-top">
+            <p class="posted-at"><%= time_ago_in_words(post.created_at) %> ago</p>
+      </div>
+      <div class="post-body">
+
+      <strong><%= post.message %></strong> <br/>
       <% if post.picture.attached? %>
         <%= image_tag(url_for(post.picture), class: "post-picture") %>
       <% end %>
-      <p class="posted-at">Posted <%= time_ago_in_words(post.created_at) %> ago</p>
       <p class="posted-by">Posted by <%= link_to "#{post.user.first_name}", user_path(post.user) %></p>
           <% fire_counter = 0 %>
           <% thumbs_up_counter = 0 %>
@@ -48,10 +52,12 @@
         <% if post.comments %>
           <strong>Comments</strong>
           <% post.comments.each do |comment| %>
-            <p><%= comment.user.first_name %>: <%= comment.content %></p>
+          <br>
+            <span class="comment-name">@<%= comment.user.first_name %></span>: <span class="comment-content"><%= comment.content %></span>
               <% if comment.user == current_user %>
-                <%= button_to "delete comment", post_comment_path(post, comment), :method => "delete" %>
+                <%= button_to "delete comment", post_comment_path(post, comment), :method => "delete", class: "my_button delete" %>
               <% end %>
+            </p>
           <% end %>
         <% end %>
       <%= form_with model: [post, post.comments.new] do |f| %>
@@ -59,6 +65,7 @@
         <%= f.text_field :content, placeholder: 'Write a comment...' %>
         <%= f.submit "Add comment" %>
       <% end %>
+  </div>
   </div>
 
 

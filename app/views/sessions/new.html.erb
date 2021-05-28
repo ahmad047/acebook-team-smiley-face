@@ -1,8 +1,6 @@
-<!-- <h1>Sessions#new</h1> -->
+<h1>&emsp;&emsp;Login</h1>
+<div align="center" class="user_info">
 
-
-
-<h1> Login </h1>
 
 <%= form_with(url: login_path, scope: :session, local: true) do |form| %>
   <div class="field">
@@ -14,6 +12,8 @@
     <%= password_field_tag :password %>
   </div>
   <div class="actions">
+    <%= label_tag %>
     <%= submit_tag :Login %>
   </div>
 <% end %>
+</div>

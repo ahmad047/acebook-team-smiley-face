@@ -17,11 +17,11 @@
   <%= @user.email %>
 </p>
 
-<% if current_user == @user %>
-  <%= link_to 'Edit', edit_user_path(@user) %>
-<% end %>
+<p>
+  <strong>Friends</strong>
+</p>
 
-<strong>Friends</strong>
+
 
 <% @user.friends.each do |friend| %>
 <p><%= link_to "#{friend.first_name} #{friend.last_name}", friend %></p>
@@ -58,7 +58,7 @@
       <% end %>
       <% if post.user == current_user %>
         <%= link_to 'edit', edit_post_path(post), class: "my_button" %>
-        <br /> <br />
+        <br />
         <%= button_to "delete ", post, class: "my_button", :method => "delete" %>
       <% end %>
       <br />

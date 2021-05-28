@@ -61,7 +61,7 @@ GEM
     autoprefixer-rails (10.2.5.1)
       execjs (> 0)
     aws-eventstream (1.1.1)
-    aws-partitions (1.462.0)
+    aws-partitions (1.464.0)
     aws-sdk-core (3.114.0)
       aws-eventstream (~> 1, >= 1.0.2)
       aws-partitions (~> 1, >= 1.239.0)
@@ -129,8 +129,7 @@ GEM
     mini_mime (1.1.0)
     minitest (5.14.4)
     nio4r (2.5.7)
-    nokogiri (1.11.5-x86_64-darwin)
-    nokogiri (1.11.5-x86_64-linux)
+    nokogiri (1.11.6-x86_64-darwin)
       racc (~> 1.4)
     orderly (0.1.1)
       capybara (>= 1.1)
@@ -142,7 +141,7 @@ GEM
       nio4r (~> 2.0)
     racc (1.5.2)
     rack (2.2.3)
-    rack-proxy (0.6.5)
+    rack-proxy (0.7.0)
       rack
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
@@ -176,6 +175,7 @@ GEM
     rb-fsevent (0.11.0)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
+    redis (3.3.5)
     rspec (3.10.0)
       rspec-core (~> 3.10.0)
       rspec-expectations (~> 3.10.0)
@@ -248,7 +248,7 @@ GEM
 PLATFORMS
   x86_64-darwin-18
   x86_64-darwin-19
-  x86_64-linux
+  x86_64-darwin-20
 
 DEPENDENCIES
   aws-sdk-s3
@@ -265,6 +265,7 @@ DEPENDENCIES
   pg
   puma
   rails
+  redis (~> 3.0)
   rspec-rails (~> 4.0)
   sass-rails (~> 6.0)
   selenium-webdriver
@@ -275,4 +276,4 @@ DEPENDENCIES
   will_paginate (~> 3.1.7)
 
 BUNDLED WITH
-   2.2.17
+   2.2.15

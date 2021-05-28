@@ -23,7 +23,6 @@
     <% @posts.each do |post| %>
     <div class="post-wrapper">
           <div class="post-top">
-            <p class="posted-by">Posted by @<%= post.user.first_name %></p>
             <p class="posted-at"><%= time_ago_in_words(post.created_at) %> ago</p>
       </div>
       <div class="post-body">
@@ -32,7 +31,6 @@
       <% if post.picture.attached? %>
         <%= image_tag(url_for(post.picture), class: "post-picture") %>
       <% end %>
-      <p class="posted-at">Posted <%= time_ago_in_words(post.created_at) %> ago</p>
       <p class="posted-by">Posted by <%= link_to "#{post.user.first_name}", user_path(post.user) %></p>
           <% fire_counter = 0 %>
           <% thumbs_up_counter = 0 %>

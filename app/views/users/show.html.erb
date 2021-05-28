@@ -4,12 +4,12 @@
 
 <p>
   <strong>First name:</strong>
-  <%= @user.first_name %>
+  <%= "#{@user.first_name.capitalize}" %>
 </p>
 
 <p>
   <strong>Last name:</strong>
-  <%= @user.last_name %>
+  <%= "#{@user.last_name.capitalize}" %>
 </p>
 
 <p>
@@ -39,7 +39,7 @@
 
 <p>
 <% if current_user == @user %>
-  <%= link_to 'edit profile', edit_user_path(@user),class: "my_button" %>
+  <%= link_to 'Edit Profile', edit_user_path(@user),class: "my_button" %>
 <% end %>
 </p>
 
@@ -57,9 +57,9 @@
         <br>
       <% end %>
       <% if post.user == current_user %>
-        <%= link_to 'edit', edit_post_path(post), class: "my_button" %>
+        <%= link_to 'Edit', edit_post_path(post), class: "my_button" %>
         <br />
-        <%= button_to "delete ", post, class: "my_button", :method => "delete" %>
+        <%= button_to "Delete ", post, class: "my_button", :method => "delete" %>
       <% end %>
       <br />
       <% if post.likes.count >= 1 %>

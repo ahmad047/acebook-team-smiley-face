@@ -52,8 +52,11 @@
     </div>
 
     <div class="form-group">
-      <%# submit_tag :Sign Up %>
-      <%= form.submit "Sign-up", class:"my_button" %>
+    <% if !logged_in? %>
+      <%= form.submit "Sign Up", class:"my_button" %>
+    <% else %>
+      <%= form.submit "Submit", class:"my_button" %>
+    <% end %>
     </div>
   </div>
   </div>

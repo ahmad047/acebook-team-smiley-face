@@ -11,37 +11,29 @@ main {
   margin: 0;
 }
 
-.left-side{
-  display: none;
-}
-
-.right-side{
-  display: none;
-}
-
-.signup{
+.signup {
   position: relative;
   font-size: 1.5em;
   margin-top: 25%;
 }
 
-.signup_container{
+.signup_container {
   max-width: 200px;
 }
 
-.signup::before{
+.signup::before {
   content: '';
   position: absolute;
   bottom: 0;
   right: 0;
   width: 0;
   height: 2px;
-  background-color: #0074D9;
+  background-color: #0074d9;
   transition: width 0.6s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .signup:hover::before{
+  .signup:hover::before {
     left: 0;
     right: auto;
     width: 100%;
@@ -54,23 +46,22 @@ main {
   margin-bottom: 3em;
 }
 
-.landing_wrapper{
+.landing_wrapper {
   display: grid;
   height: 82vh;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto 1fr auto;
 }
 
-.landing_photo{
-  grid-column: 1 / 2; 
-  overflow:hidden;
-
+.landing_photo {
+  grid-column: 1 / 2;
+  overflow: hidden;
 }
 #landing_photo {
-margin-left: -700px;
+  margin-left: -700px;
 }
 
-.landing_text{
+.landing_text {
   grid-column: 2 / 3;
   display: flex;
   margin-left: 3em;
@@ -78,7 +69,7 @@ margin-left: -700px;
   justify-content: center;
 }
 
-.bookface_lander{
+.bookface_lander {
   font-weight: 700;
   font-size: 2.5em;
   margin-top: 0.25em;
@@ -106,5 +97,3 @@ margin-left: -700px;
 .lander_button:hover {
   background-color: var(--button-hover-colour);
 }
-
-

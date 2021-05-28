@@ -54,14 +54,14 @@
   </ul>
   </header>
   <body>
-    <div class="left-side">
+    <div class="left-nut">
       <ul>
       <% if logged_in? %>
         <div class="profile_pic_container">
         <% if logged_in? %>
           <% if current_user.avatar.attached? %>
             <%= image_tag(url_for(current_user.avatar), class: "profile_pic") %>
-            <a href="#"><li class="name"><%= current_user.first_name%><%= current_user.last_name%> </li></a>
+            <a href="#"><li class="name"><%= current_user.first_name %><%= current_user.last_name %> </li></a>
             <a href="#"><li class="sidebar-li">Messages</li></a>
           <% else %>
             <%= image_tag("profile_photo.png", class: "profile_pic")%>
@@ -85,7 +85,7 @@
   <main>
     <%= yield %>
   </main>
-  <div class="right-side"></div>
+  <div class="right-nut"></div>
     <footer>@2021-team-smiley-face</footer>
   </div>
 </body>

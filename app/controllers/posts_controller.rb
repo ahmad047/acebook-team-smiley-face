@@ -21,7 +21,7 @@ class PostsController < ApplicationController
   end
 
   def index
-    if !@user
+    if !logged_in?
       redirect_to landing_path
     elsif session[:user_id]
       @user = User.find_by(id: session[:user_id])

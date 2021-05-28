@@ -242,14 +242,14 @@ main {
   grid-column: 1 / 4;
 }
 
-.left-side {
+.left-nut {
   padding-top: 2em;
   background-color: var(--left-side-bg-color);
   grid-column: 1 / 2;
   align-items: center;
 }
 
-.right-side {
+.right-nut {
   background-color: var(--main-bg-color);
   /* background-color: magenta; */
   grid-column: 3 / 4;

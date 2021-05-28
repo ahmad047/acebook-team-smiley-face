@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap');
+
 /* ----------------- base styles --------------- */
 
 .signup{
@@ -36,7 +38,9 @@
   --button-hover-colour: rgb(103, 182, 182);
 }
 
+
 body {
+  font-family: 'Montserrat', sans-serif;
   background-color: floralwhite;
   margin: 0;
   padding: 0;
@@ -63,7 +67,6 @@ body {
 /* ----------------- content --------------- */
 
 .wrapper {
-  background-color: rgb(219, 250, 219);
   display: grid;
   height: 100vh;
   grid-template: auto 1fr auto / minmax(175px, 250px) 1fr minmax(100px, 200px);

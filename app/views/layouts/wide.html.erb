@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+  rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+  crossorigin="anonymous">
+  <%= stylesheet_link_tag "posts.css" %>
+  <!-- ALLOWS JS-COMPATIBLE BOOTSTRAP FUNCTIONALITY -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+  <script>
+  function readURL(input) {
+  if (input.files && input.files[0]) {
+  var reader = new FileReader();
+
+  reader.onload = function (e) {
+  $('#img_prev')
+  .show()
+  .attr('src', e.target.result)
+  .width () * 0.9
+  .height () * 0.9
+  };
+  
+  reader.readAsDataURL(input.files[0]);
+  }
+  }
+  </script>
+</head>
+      <%= notice %>
+
+      <%= alert %>
+
+  <div class="wrapper">
+  <header class="header">
+  <ul class="nav-ul">
+
+    <li class="nav-li"><a href="/"><%= image_tag("bookface_logo.png", class: "logo_header")%></a></li>
+      <% if logged_in? %>
+        <li class="nav-li">
+        <%= link_to "View my profile", current_user %>
+        </li>
+        <li class="nav-li"  style="float:right"><a href="/logout" > Log Out </a></li>
+      <% else %>
+      <li class="nav-li"  style="float:right"><a href="/login" > Log In </a></li>
+    <% end %>
+    <li class="nav-li username" style="float:right"><%= logged_in? ? "Logged in as: #{current_user.first_name}" : '' %></li>
+    <li class="nav-li username" ><%= logged_in? ? "Messages" : '' %></li>
+
+  </ul>
+  </header>
+  <body>
+    <%= yield %>
+    <footer>@2021-team-smiley-face</footer>
+  </body>
+  </html>

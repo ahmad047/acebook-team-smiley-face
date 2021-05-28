@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   post '/signup', to: 'users#create'
 
   get '/logout',to: 'sessions#destroy'
+
+  get '/landing', to: 'posts#landing'
  
   resources :users do
     post :add_friend

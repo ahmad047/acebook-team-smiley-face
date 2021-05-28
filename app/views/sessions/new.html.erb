@@ -1,3 +1,5 @@
+<h1>&emsp;&emsp;Login</h1>
+<div align="center" class="user_info">
 
 <%= form_with(url: login_path, scope: :session, local: true) do |form| %>
 <div class="login__container">
@@ -16,4 +18,11 @@
     </div>
   <% end %>
   </div>
+
+  <div class="actions">
+    <%= label_tag %>
+    <%= submit_tag :Login %>
+  </div>
+<% end %>
 </div>
+

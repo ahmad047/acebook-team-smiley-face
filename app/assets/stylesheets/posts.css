@@ -17,7 +17,8 @@ body {
 }
 
 .logo_header {
-  height: 40px;
+  position: relative;
+  height: 45px;
   margin-left: 1em;
 }
 
@@ -52,7 +53,7 @@ body {
   background-color: rgb(219, 250, 219);
   display: grid;
   height: 100vh;
-  grid-template: 75px 1fr auto / minmax(175px, 250px) 1fr minmax(100px, 200px);
+  grid-template: 75px 1fr auto / minmax(250px, 275px) 1fr minmax(100px, 200px);
 }
 
 main {
@@ -210,7 +211,6 @@ main {
 
 .right-side {
   background-color: var(--main-bg-color);
-  padding: 4em 2em 0 0;
   /* background-color: magenta; */
   grid-column: 3 / 4;
 }
@@ -237,6 +237,7 @@ footer {
   border-radius: 50%;
   width: 140px;
   width: 140px;
+  margin: 0 auto 1.25em auto;
 }
 
 /* ----------------- nav bar --------------- */
@@ -245,11 +246,14 @@ footer {
   margin: 0;
   padding: 0;
   overflow: hidden;
+  position: relative;
   background-color: paleturquoise;
 }
 
 .nav-li {
   float: left;
+  line-height: 3.5em;
+
 }
 
 .nav-li a,
@@ -276,9 +280,8 @@ a {
 /* ----------------- side bar --------------- */
 
 .sidebar-li {
+  text-decoration: underline;
   list-style-type: none;
-  color: black;
-  text-decoration: none;
 }
 
 .profile-photo {
@@ -288,14 +291,15 @@ a {
 /* ----------------- user page (move later) --------------- */
 
 .user_info {
-  background-color: white;
+  background-color: var(--post-bg-color);
   border-radius: 20px;
   align-content: stretch;
-  margin: 1em 2em;
-  padding: 2em;
   align-items: stretch;
-  min-width: 400px;
+  margin: 2em 2em;
+  padding: 2em;
+  min-width: 700px;
   max-width: 800px;
+  box-shadow: 0 8px 6px -10px black;
   font-size: 1.2em;
 }
 
@@ -309,16 +313,24 @@ a {
   transition: cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
-.your_posts {
-  background-color: white;
-  border-radius: 20px;
-  align-content: stretch;
-  margin: 1em 2em;
-  padding: 2em;
-  align-items: stretch;
-  min-width: 400px;
-  max-width: 800px;
-  font-size: 1.2em;
+label {
+  display: table-cell;
+  text-align: right;
+}
+input {
+  display: table-cell;
+  margin: 0.5em;
+  border-radius: 6px;
+}
+div.field {
+  display: table-row;
+}
+div.actions {
+  display: table-row;
+}
+
+h1 {
+  margin-top: 1em;
 }
 /* ----------------- sign up page --------------- */
 

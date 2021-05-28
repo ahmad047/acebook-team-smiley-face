@@ -9,6 +9,6 @@ feature "Signing up" do
     fill_in 'user[password]', with: 'password123'
     fill_in 'user[password_confirmation]', with: 'password123'
     click_button 'Create User'
-    expect(current_path).to eq(root_path)
+    expect(page).to have_content("Please confirm your email address")
   end
 end

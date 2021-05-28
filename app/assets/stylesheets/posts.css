@@ -17,7 +17,8 @@ body {
 }
 
 .logo_header {
-  height: 40px;
+  position: relative;
+  height: 45px;
   margin-left: 1em;
 }
 
@@ -245,11 +246,14 @@ footer {
   margin: 0;
   padding: 0;
   overflow: hidden;
+  position: relative;
   background-color: paleturquoise;
 }
 
 .nav-li {
   float: left;
+  line-height: 3.5em;
+
 }
 
 .nav-li a,

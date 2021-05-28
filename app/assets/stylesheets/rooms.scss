@@ -95,7 +95,7 @@
         background-color: #ff5059;
       }
       &.active {
-        background-color: rgb(254, 181, 86);
+        background-color: rgb(245, 183, 102);
         .name {
           color: white;
         }
@@ -105,7 +105,7 @@
       }
       .name {
         font-weight: bold;
-        color: black;
+        color: rgb(255, 255, 255);
       }
       .member-count {
         color: #777777;

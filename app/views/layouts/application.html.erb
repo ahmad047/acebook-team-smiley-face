@@ -38,7 +38,6 @@
   <div class="wrapper">
   <header class="header">
   <ul class="nav-ul">
-
     <li class="nav-li"><a href="/"><%= image_tag("bookface_logo.png", class: "logo_header")%></a></li>
       <% if logged_in? %>
         <li class="nav-li">
@@ -50,7 +49,6 @@
     <% end %>
     <li class="nav-li username" style="float:right"><%= logged_in? ? "Logged in as: #{current_user.first_name}" : '' %></li>
     <li class="nav-li username" ><%= logged_in? ? "Messages" : '' %></li>
-
   </ul>
   </header>
   <body>

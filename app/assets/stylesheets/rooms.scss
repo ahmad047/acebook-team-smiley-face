@@ -1,13 +1,13 @@
 // Place all the styles related to the Rooms controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-// .col-9 {
-//     overflow-y: hidden;
-//     ::-webkit-scrollbar {
-//       display: none;
-//     }
-//     -ms-overflow-style: none;
-//   }
+.col-9 {
+    overflow-y: hidden;
+    ::-webkit-scrollbar {
+      display: none;
+    }
+    -ms-overflow-style: none;
+  }
   
 
   .chat-room {
@@ -62,13 +62,14 @@
       position: sticky;
       bottom: -10px;
       padding: 20px;
-      width: 110%;
+      padding-top: 15px;
+      width: 102%;
       margin-left: -15px;
       background-color: #fef9f9;
       border-top: 1px solid #eeeeee;
       border-radius: 8px;
       input[type='text'] {
-        height: 45px;
+        height: 40px;
         font-size: 18px;
         padding: 8px;
       }

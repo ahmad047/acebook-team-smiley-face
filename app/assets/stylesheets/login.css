@@ -1,0 +1,40 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  background-color: floralwhite;
+}
+
+main {
+  padding: 0;
+  margin: 0;
+}
+
+.left-side{
+  display: none;
+}
+
+.right-side{
+  display: none;
+}
+
+.form_wrapper{
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 25px;
+  padding: 5em;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 14px 28px hsl(185deg 90% 18% / 31%),
+  0 10px 10px rgb(255 255 255/ 9%);
+}
+
+.my_button{
+  align-self: center;
+  justify-self: center;
+}
+
+.form_wrapper h2{
+  margin-bottom: 0.5em;
+}
+

@@ -14,10 +14,12 @@
   <% end %>
 
 
+
+    <div class="form_container">
    <div class="form_wrapper">
   
 
-      <h1>Welcome to BookFace</h1>
+      <h1>Welcome to Bookface</h1>
     <div class="form-group">
       <%= form.label :first_name %>
       <%= form.text_field :first_name, class:"form-control" %>
@@ -51,7 +53,8 @@
 
     <div class="form-group">
       <%# submit_tag :Sign Up %>
-      <%= form.submit "Sign-up", class:"btn--form" %>
+      <%= form.submit "Sign-up", class:"my_button" %>
     </div>
+  </div>
   </div>
 <% end %>

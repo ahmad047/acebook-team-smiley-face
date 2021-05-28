@@ -386,12 +386,13 @@ a {
 
 .your_posts {
   background-color: white;
+  box-shadow: 0 8px 6px -10px black;
   border-radius: 20px;
   align-content: stretch;
   margin: 1em 2em;
   padding: 2em;
   align-items: stretch;
-  min-width: 400px;
+  min-width: 500px;
   max-width: 800px;
   font-size: 1.2em;
 }

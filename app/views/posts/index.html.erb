@@ -40,18 +40,26 @@
               <% thumbs_up_counter += 1 %>
             <% end %>
           <% end %>
+          <% if post.likes.count >= 1 %>
           <div class="reacts">
             <span class="emoji_horizontal"><%= button_to "👍 #{thumbs_up_counter}", post_likes_path(post), method: :post, class: "emoji-button", params: { :react_type => 'like' }%></span>
             <span class="emoji_horizontal"><%= button_to "💖 #{heart_counter}", post_likes_path(post), method: :post, class: "emoji-button", params: { :react_type => 'heart' } %></span>
             <span class="emoji_horizontal"><%= button_to "🔥 #{fire_counter}", post_likes_path(post), method: :post, class: "emoji-button", params: { :react_type => 'fire' } %></span>
           </div>
+        <% else %>
+          <div class="reacts">
+            <span class="emoji_horizontal"><%= button_to "👍", post_likes_path(post), method: :post, class: "emoji-button", params: { :react_type => 'like' }%></span>
+            <span class="emoji_horizontal"><%= button_to "💖", post_likes_path(post), method: :post, class: "emoji-button", params: { :react_type => 'heart' } %></span>
+            <span class="emoji_horizontal"><%= button_to "🔥", post_likes_path(post), method: :post, class: "emoji-button", params: { :react_type => 'fire' } %></span>
+          </div>
+        <% end %>
         <% if post.comments %>
           <strong>Comments</strong>
           <% post.comments.each do |comment| %>
           <br>
             <span class="comment-name">@<%= comment.user.first_name %></span>: <span class="comment-content"><%= comment.content %></span>
               <% if comment.user == current_user %>
-                <%= button_to "delete comment", post_comment_path(post, comment), :method => "delete", class: "my_button delete" %>
+                <%= button_to "Delete comment", post_comment_path(post, comment), :method => "delete", class: "my_button delete" %>
               <% end %>
             </p>
           <% end %>

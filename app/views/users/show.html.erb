@@ -49,7 +49,7 @@
 <% if @posts.length >= 1 %>
   <h4>Your posts:</h4>
   <% @posts.each do |post| %>
-    <div class="post">
+    <div class="your_posts">
       <strong><%= post.message %></strong>
       <p class="posted-at">Posted <%= time_ago_in_words(post.created_at) %> ago</p>
        <% if post.picture.attached? %>
@@ -58,13 +58,13 @@
       <% end %>
       <% if post.user == current_user %>
         <%= link_to 'Edit', edit_post_path(post), class: "my_button" %>
-        <br />
         <%= button_to "Delete ", post, class: "my_button", :method => "delete" %>
       <% end %>
       <br />
       <% if post.likes.count >= 1 %>
          <small> <%= post.likes.count %> </small> 👍💖🔥
       <% end %>
+      </br>
       <% if post.comments %>
           <strong>Comments</strong>
           <% post.comments.each do |comment| %>

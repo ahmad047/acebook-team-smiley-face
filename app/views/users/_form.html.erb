@@ -12,6 +12,7 @@
     </div>
   <% end %>
 
+  <div class="form_wrapper">
   <div class="field">
     <%= form.label :first_name %>
     <%= form.text_field :first_name %>
@@ -45,7 +46,8 @@
 
   <div>
     <%= form.label " " %>
-    <%= form.submit name:"Sign-up" %>
+    <%= form.submit name:"Sign-up", class: "my_button" %>
+  </div>
   </div>
 
 <% end %>

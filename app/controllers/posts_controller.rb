@@ -16,11 +16,16 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
   end
 
+  def landing
+    render 'lander'
+  end
+
   def index
-    if session[:user_id]
+    if !@user
+      redirect_to landing_path
+    elsif session[:user_id]
       @user = User.find_by(id: session[:user_id])
     end
-
     @post = Post.new
     @posts = Post.all.order('created_at DESC')
   end

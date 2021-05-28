@@ -1,4 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap');
+
 /* ----------------- base styles --------------- */
+
+.signup{
+  position: relative;
+  font-size: 60px;
+  margin-top: 25%;
+}
+
+.signup::before{
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 0;
+  height: 2px;
+  background-color: #0074D9;
+  transition: width 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .signup:hover::before{
+    left: 0;
+    right: auto;
+    width: 100%;
+  }
+}
+
 :root {
   --main-bg-color: #fef9f9;
   --header-bg-colour: paleturquoise;
@@ -7,10 +35,11 @@
   --post-text: black;
   --posted-at-text: grey;
   --button-colour: rgb(62, 165, 165);
-  --button-hover-colour: rgb(64, 125, 125);
+  --button-hover-colour: rgb(103, 182, 182);
 }
 
 body {
+  font-family: 'Montserrat', sans-serif;
   background-color: floralwhite;
   margin: 0;
   padding: 0;
@@ -30,6 +59,12 @@ body {
   border: none;
   transition: background-color 1s ease;
 }
+
+.my_button:hover {
+  background-color: var(--button-hover-colour);
+}
+
+/* ----------------- content --------------- */
 
 .delete {
   font-size: 0.8em;
@@ -127,6 +162,10 @@ main {
   transition: box-shadow 0.5s ease;
 }
 
+.upload-image-text {
+  margin-bottom: 1em;
+}
+
 .text-field:hover,
 .comment-field:hover {
   box-shadow: 0px 0px 14px 0px rgba(118, 191, 255, 0.8);
@@ -207,6 +246,7 @@ main {
   padding-top: 2em;
   background-color: var(--left-side-bg-color);
   grid-column: 1 / 2;
+  align-items: center;
 }
 
 .right-side {
@@ -223,6 +263,7 @@ footer {
 }
 
 .profile_pic_container {
+  width: 220px;
   background: white;
   display: flex;
   flex-direction: column;
@@ -230,6 +271,7 @@ footer {
   margin-right: 2em;
   padding: 20px;
   box-shadow: 0 8px 6px -10px black;
+  align-items: center;
 }
 
 .profile_pic {
@@ -238,6 +280,24 @@ footer {
   width: 140px;
   width: 140px;
   margin: 0 auto 1.25em auto;
+}
+
+.friend_pic {
+  border: 1px solid transparent;
+  border-radius: 50%;
+  width: 70px;
+  width: 70px;
+  padding: 5px;
+  transition: all 0.2s ease-in-out;
+}
+
+.friend_pic:hover {
+  transform: scale(1.1);
+}
+
+.friends {
+  grid-column: 1 / 3;
+  align-items: center;
 }
 
 /* ----------------- nav bar --------------- */
@@ -282,6 +342,17 @@ a {
 .sidebar-li {
   text-decoration: underline;
   list-style-type: none;
+  color: black;
+  text-decoration: none;
+  display: flex;
+}
+
+.name {
+  font-size: 30px;
+  list-style-type: none;
+  color: black;
+  text-decoration: none;
+  padding: 10px;
 }
 
 .profile-photo {
@@ -313,6 +384,17 @@ a {
   transition: cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
+.your_posts {
+  background-color: white;
+  border-radius: 20px;
+  align-content: stretch;
+  margin: 1em 2em;
+  padding: 2em;
+  align-items: stretch;
+  min-width: 400px;
+  max-width: 800px;
+  font-size: 1.2em;
+
 label {
   display: table-cell;
   text-align: right;
@@ -321,6 +403,7 @@ input {
   display: table-cell;
   margin: 0.5em;
   border-radius: 6px;
+
 }
 div.field {
   display: table-row;

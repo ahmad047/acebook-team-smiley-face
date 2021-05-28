@@ -2,7 +2,7 @@
 
 A full-stack web app inspired by the functionality of FaceBook. The web app allows the user to sign up, add friends, and make a post, message and more.
 
-**Visit the website [here] (https://stormy-beach-31437.herokuapp.com/)**
+**Visit the website [here]** (https://stormy-beach-31437.herokuapp.com/)
 
 The features built in this project are based on [user stories.](./resources/user_stories.md)
 

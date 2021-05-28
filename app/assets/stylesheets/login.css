@@ -1,14 +1,11 @@
-/* .wrapper {
+main {
+  padding: 0;
+  margin: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0 auto;
   background-color: floralwhite;
-} */
-
-main {
-  padding: 0;
-  margin: 0;
 }
 
 .left-side{

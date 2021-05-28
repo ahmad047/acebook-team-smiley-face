@@ -50,8 +50,8 @@ main {
 
 .logo_lander {
   margin-left: -0.3em;
-  width: 200px;
-  margin-top: 2em;
+  width: 175px;
+  margin-bottom: 4em;
 }
 
 .landing_wrapper{
@@ -80,12 +80,13 @@ margin-left: -700px;
 
 .bookface_lander{
   font-weight: 700;
-  font-size: 2em;
-  margin-top: 1em;
+  font-size: 2.5em;
+  margin-top: 0.25em;
 }
 
 .bookface_lander_join {
   margin-top: 1.25em;
+  font-size: 1.25em;
   margin-bottom: 1em;
   font-weight: 700;
 }
